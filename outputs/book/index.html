@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把光借给你 · 网页绘本</title>
+<style>
+  :root{
+    --cream:#FBF7EF; --ink:#3A3330; --muted:#8B7D72;
+    --accent:#C9713C; --line:#E6DCCC; --shadow:0 18px 50px rgba(90,70,50,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 20% -10%, #FFF9EE 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 100%, #F3E9D8 0%, transparent 55%),
+      #EFE7D9;
+    font-family:"Kaiti SC","STKaiti",KaiTi,"楷体",Georgia,serif;
+    color:var(--ink); min-height:100vh;
+    display:flex; flex-direction:column; align-items:center;
+    padding:26px 16px 90px;
+  }
+  .stage{width:min(920px,100%);perspective:1800px}
+  .book{
+    position:relative; background:var(--cream); border-radius:14px;
+    box-shadow:var(--shadow); overflow:hidden;
+    border:1px solid var(--line);
+    transform-style:preserve-3d;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
+  }
+  .book.turn{transform:rotateY(-8deg) scale(.985);opacity:.35}
+  .page{display:none}
+  .page.on{display:block; animation:rise .5s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .cover{position:relative;cursor:pointer;background:#1B2544}
+  .cover img{width:100%;max-height:82vh;object-fit:contain;display:block;margin:0 auto}
+  .cover .veil{display:none}
+  .cover .hint{display:none}
+  .spread{display:grid;grid-template-columns:1.18fr .82fr;min-height:520px}
+  .spread .art{background:#EFE6D6;display:flex;align-items:center;justify-content:center}
+  .spread .art img{width:100%;height:100%;object-fit:cover;display:block}
+  .spread .prose{padding:38px 34px;display:flex;flex-direction:column}
+  .kicker{font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:10px}
+  .prose h2{font-size:19px;font-weight:400;letter-spacing:.06em;margin-bottom:16px;line-height:1.5}
+  .prose p{font-size:16.5px;line-height:2.15;text-indent:2em;color:#4A423C;flex:1}
+  .mood{
+    align-self:flex-end;margin-top:18px;font-size:12px;letter-spacing:.2em;
+    color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 14px;
+  }
+  .end{display:flex;flex-direction:column;align-items:center;justify-content:center;
+       min-height:520px;padding:60px 40px;text-align:center;gap:26px}
+  .end .m{font-size:22px;line-height:2;color:var(--accent);max-width:560px}
+  .end .fin{letter-spacing:.4em;color:var(--muted);font-size:13px}
+  .bar{
+    position:fixed;left:50%;transform:translateX(-50%);bottom:24px;
+    display:flex;align-items:center;gap:18px;background:rgba(251,247,239,.92);
+    border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+    box-shadow:0 8px 26px rgba(90,70,50,.14);backdrop-filter:blur(8px);
+  }
+  .bar button{
+    border:none;background:none;font-family:inherit;font-size:15px;color:var(--ink);
+    cursor:pointer;padding:6px 10px;border-radius:999px;transition:.2s;
+  }
+  .bar button:hover{background:#F0E5D2;color:var(--accent)}
+  .bar button:disabled{opacity:.28;cursor:default}
+  .bar .no{font-size:12.5px;color:var(--muted);letter-spacing:.14em;min-width:64px;text-align:center}
+  .dots{display:flex;gap:6px}
+  .dots i{width:6px;height:6px;border-radius:50%;background:#D9CCB8;display:block;transition:.2s}
+  .dots i.on{background:var(--accent);transform:scale(1.35)}
+  @media (max-width:760px){
+    .spread{grid-template-columns:1fr}
+    .spread .art{aspect-ratio:3/2}
+    .prose{padding:26px 22px}
+    .prose p{font-size:15.5px;line-height:2}
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="book" id="book">
+
+    <section class="page on cover" id="p0" data-idx="0">
+      <img src="images/cover_titled.jpg" alt="封面">
+      <div class="veil">
+        <h1>把光借给你</h1>
+        <div class="by">文 / 图　刘星宝</div>
+      </div>
+      <div class="hint">点击翻页 · 或按 →</div>
+    </section>
+
+    <div id="spreads"></div>
+
+    <section class="page end" id="pend">
+      <div class="m">把光分给别人，自己的光不会变少——它会在别人手里，重新亮一次。</div>
+      <div class="fin">— 完 —</div>
+    </section>
+
+  </div>
+</div>
+
+<div class="bar">
+  <button id="prev" aria-label="上一页">← 上一页</button>
+  <span class="no" id="no">封面</span>
+  <div class="dots" id="dots"></div>
+  <button id="next" aria-label="下一页">下一页 →</button>
+</div>
+
+<script>
+const PAGES = [{"id": 1, "desc": "夜里熄灯后的房间，小满在床上给自己壮胆", "text": "晚上九点，妈妈关了灯，门轻轻合上。小满把自己缩成一个小球，只露出两只眼睛。衣柜的影子像一只蹲着的猫，窗帘被风吹得鼓起来，又瘪下去。她在心里数：一、二、三……数到七的时候，天花板上传来“咔哒”一声。她小声问：“谁在那儿？”没有人回答。可她知道，这个家里除了她和妈妈，阁楼上还堆着外公留下的旧东西。", "mood": "紧张", "img": "images/scene01.jpg"}, {"id": 2, "desc": "阁楼里发现旧纸灯笼，阿灯醒来", "text": "阁楼的楼梯在走廊尽头，第三级会响。小满踮着脚踩过去，还是“吱”了一声。灰尘在手电筒的光柱里慢慢地飘。角落里躺着一只旧纸灯笼，竹骨撑得鼓鼓的，米白色的宣纸上打着两处补丁。她伸手擦了擦，灯笼忽然“嗝”地响了一下。“哎哟，痒。”一个细小的声音说。小满的手停在半空。灯笼里的火苗抖了抖，睁开了一只眼睛。", "mood": "惊奇", "img": "images/scene02.jpg"}, {"id": 3, "desc": "阿灯带小满飞过屋顶，城市在关灯", "text": "“抓紧了。”阿灯说。它没有翅膀，可它飘起来的时候，整间阁楼都亮了。窗户自己打开，风把小满的头发吹到脑后。他们从屋顶上飞过去，瓦片在脚下变成一片一片的鳞。整座城市正在关灯，一盏，两盏，三盏，像有人在数星星，只是数着数着就困了。“你看，”阿灯打了个嗝，“黑不是空的，黑是盖着被子的。”", "mood": "轻盈", "img": "images/scene03.jpg"}, {"id": 4, "desc": "墨墨出现，吞掉整排路灯的光", "text": "飞到第三条街的时候，路灯忽然灭了。不是一盏一盏地灭，是一整排一起灭，像有人一口把它们吸了进去。小满看见一团灰黑色的东西停在路灯上，拳头那么大，边缘毛茸茸的，正在“咕咚咕咚”地咽。“那是墨墨。”阿灯的声音低下去，“它一晚上要吃掉一百盏灯。”小满抱紧了阿灯，手指有点抖。", "mood": "恐惧", "img": "images/scene04.jpg"}, {"id": 5, "desc": "小满嘴硬说“我不怕”，阿灯的光暗了一圈", "text": "“我们回去吧。”小满说。她听见自己的声音在发抖，觉得有点丢人，又补了一句，“我不是怕。”阿灯没有笑她。可它的光暗了一圈，像有人把灯芯拧小了一点。“你怎么了？”小满问。“我没事。”阿灯说，“就是……你不相信我的时候，我会变小一点。”它又打了个嗝，这次声音很轻。", "mood": "低落", "img": "images/scene05.jpg"}, {"id": 6, "desc": "小满发现墨墨在哭——它怕黑", "text": "墨墨停在最后一盏路灯上，没有再吃。小满看见它的边缘在往下滴水，一滴，一滴，落在灯罩上。那不是雨。“你为什么哭？”她问。墨墨转过身，两只圆圆的白眼睛睁得很大。“我怕黑。”它说，“我住在天上，天上没有灯。我吃掉它们，是想留一盏给自己。可是我吞进去的光，过一会儿就凉了。”", "mood": "心疼", "img": "images/scene06.jpg"}, {"id": 7, "desc": "小满把妈妈买的小夜灯送给墨墨", "text": "小满摸了摸口袋。那里有一只小夜灯，是妈妈在她三岁那年买的，塑料的外壳，按一下会亮一朵小小的橘色的花。她把它掏出来，按了一下。花亮了。“给你。”她说。墨墨愣住了。“给我？”它小声问，“那你不就没有了？”小满想了想，说：“我明天再跟妈妈要一个。”", "mood": "温暖", "img": "images/scene07.jpg"}, {"id": 8, "desc": "天亮，墨墨变成一朵藏着灯的云，城市重新亮起", "text": "天快亮的时候，墨墨慢慢变软了。它不再是灰黑色，边缘泛出一点浅浅的金。它飘到天上，变成一朵很小的云，云里藏着一朵橘色的花。回家的路上，路灯一盏一盏地亮起来，像是有人在天亮之前，先替太阳点了一遍。阿灯的光变得很足，足得能照见小满的脚尖。“你不怕黑了？”它问。小满摇头：“黑不是空的。黑是盖着被子的。”", "mood": "释然", "img": "images/scene08.jpg"}];
+const spreads = document.getElementById('spreads');
+PAGES.forEach((p, i) => {
+  const s = document.createElement('section');
+  s.className = 'page';
+  s.id = 'p' + (i + 1);
+  s.dataset.idx = i + 1;
+  s.innerHTML = `
+    <div class="spread">
+      <div class="art"><img src="${p.img}" alt="第${p.id}幕"></div>
+      <div class="prose">
+        <div class="kicker">第 ${p.id} 幕</div>
+        <h2>${p.desc}</h2>
+        <p>${p.text}</p>
+        <div class="mood">${p.mood}</div>
+      </div>
+    </div>`;
+  spreads.appendChild(s);
+});
+
+const all = [...document.querySelectorAll('.page')];
+const dots = document.getElementById('dots');
+all.forEach((_, i) => {
+  const d = document.createElement('i');
+  if (i === 0) d.className = 'on';
+  dots.appendChild(d);
+});
+
+let cur = 0;
+const book = document.getElementById('book');
+const noEl = document.getElementById('no');
+
+function render() {
+  all.forEach((el, i) => el.classList.toggle('on', i === cur));
+  [...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur));
+  noEl.textContent = cur === 0 ? '封面'
+    : (cur === all.length - 1 ? '尾声' : `${cur} / ${PAGES.length}`);
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === all.length - 1;
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function go(n) {
+  if (n < 0 || n >= all.length || n === cur) return;
+  book.classList.add('turn');
+  setTimeout(() => {
+    cur = n; render(); book.classList.remove('turn');
+  }, 210);
+}
+
+document.getElementById('prev').onclick = () => go(cur - 1);
+document.getElementById('next').onclick = () => go(cur + 1);
+document.getElementById('p0').onclick = () => go(1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(cur + 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+});
+document.addEventListener('click', e => {
+  if (e.target.closest('.bar') || e.target.closest('#p0')) return;
+  const r = book.getBoundingClientRect();
+  if (e.clientX > r.left + r.width * 0.62) go(cur + 1);
+  else if (e.clientX < r.left + r.width * 0.38) go(cur - 1);
+});
+render();
+</script>
+</body>
+</html>

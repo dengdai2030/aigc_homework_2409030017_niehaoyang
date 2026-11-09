@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__TITLE__ · 网页绘本</title>
+<style>
+  :root{
+    --cream:#FBF7EF; --ink:#3A3330; --muted:#8B7D72;
+    --accent:#C9713C; --line:#E6DCCC; --shadow:0 18px 50px rgba(90,70,50,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 20% -10%, #FFF9EE 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 100%, #F3E9D8 0%, transparent 55%),
+      #EFE7D9;
+    font-family:"Kaiti SC","STKaiti",KaiTi,"楷体",Georgia,serif;
+    color:var(--ink); min-height:100vh;
+    display:flex; flex-direction:column; align-items:center;
+    padding:26px 16px 90px;
+  }
+  .stage{width:min(920px,100%);perspective:1800px}
+  .book{
+    position:relative; background:var(--cream); border-radius:14px;
+    box-shadow:var(--shadow); overflow:hidden;
+    border:1px solid var(--line);
+    transform-style:preserve-3d;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
+  }
+  .book.turn{transform:rotateY(-8deg) scale(.985);opacity:.35}
+  .page{display:none}
+  .page.on{display:block; animation:rise .5s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .cover{position:relative;cursor:pointer;background:#1B2544}
+  .cover img{width:100%;max-height:82vh;object-fit:contain;display:block;margin:0 auto}
+  .cover .veil{display:none}
+  .cover .hint{display:none}
+  .spread{display:grid;grid-template-columns:1.18fr .82fr;min-height:520px}
+  .spread .art{background:#EFE6D6;display:flex;align-items:center;justify-content:center}
+  .spread .art img{width:100%;height:100%;object-fit:cover;display:block}
+  .spread .prose{padding:38px 34px;display:flex;flex-direction:column}
+  .kicker{font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:10px}
+  .prose h2{font-size:19px;font-weight:400;letter-spacing:.06em;margin-bottom:16px;line-height:1.5}
+  .prose p{font-size:16.5px;line-height:2.15;text-indent:2em;color:#4A423C;flex:1}
+  .mood{
+    align-self:flex-end;margin-top:18px;font-size:12px;letter-spacing:.2em;
+    color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 14px;
+  }
+  .end{display:flex;flex-direction:column;align-items:center;justify-content:center;
+       min-height:520px;padding:60px 40px;text-align:center;gap:26px}
+  .end .m{font-size:22px;line-height:2;color:var(--accent);max-width:560px}
+  .end .fin{letter-spacing:.4em;color:var(--muted);font-size:13px}
+  .bar{
+    position:fixed;left:50%;transform:translateX(-50%);bottom:24px;
+    display:flex;align-items:center;gap:18px;background:rgba(251,247,239,.92);
+    border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+    box-shadow:0 8px 26px rgba(90,70,50,.14);backdrop-filter:blur(8px);
+  }
+  .bar button{
+    border:none;background:none;font-family:inherit;font-size:15px;color:var(--ink);
+    cursor:pointer;padding:6px 10px;border-radius:999px;transition:.2s;
+  }
+  .bar button:hover{background:#F0E5D2;color:var(--accent)}
+  .bar button:disabled{opacity:.28;cursor:default}
+  .bar .no{font-size:12.5px;color:var(--muted);letter-spacing:.14em;min-width:64px;text-align:center}
+  .dots{display:flex;gap:6px}
+  .dots i{width:6px;height:6px;border-radius:50%;background:#D9CCB8;display:block;transition:.2s}
+  .dots i.on{background:var(--accent);transform:scale(1.35)}
+  @media (max-width:760px){
+    .spread{grid-template-columns:1fr}
+    .spread .art{aspect-ratio:3/2}
+    .prose{padding:26px 22px}
+    .prose p{font-size:15.5px;line-height:2}
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="book" id="book">
+
+    <section class="page on cover" id="p0" data-idx="0">
+      <img src="__COVER__" alt="封面">
+      <div class="veil">
+        <h1>__TITLE__</h1>
+        <div class="by">文 / 图　刘星宝</div>
+      </div>
+      <div class="hint">点击翻页 · 或按 →</div>
+    </section>
+
+    <div id="spreads"></div>
+
+    <section class="page end" id="pend">
+      <div class="m">__MORAL__</div>
+      <div class="fin">— 完 —</div>
+    </section>
+
+  </div>
+</div>
+
+<div class="bar">
+  <button id="prev" aria-label="上一页">← 上一页</button>
+  <span class="no" id="no">封面</span>
+  <div class="dots" id="dots"></div>
+  <button id="next" aria-label="下一页">下一页 →</button>
+</div>
+
+<script>
+const PAGES = __PAGES__;
+const spreads = document.getElementById('spreads');
+PAGES.forEach((p, i) => {
+  const s = document.createElement('section');
+  s.className = 'page';
+  s.id = 'p' + (i + 1);
+  s.dataset.idx = i + 1;
+  s.innerHTML = `
+    <div class="spread">
+      <div class="art"><img src="${p.img}" alt="第${p.id}幕"></div>
+      <div class="prose">
+        <div class="kicker">第 ${p.id} 幕</div>
+        <h2>${p.desc}</h2>
+        <p>${p.text}</p>
+        <div class="mood">${p.mood}</div>
+      </div>
+    </div>`;
+  spreads.appendChild(s);
+});
+
+const all = [...document.querySelectorAll('.page')];
+const dots = document.getElementById('dots');
+all.forEach((_, i) => {
+  const d = document.createElement('i');
+  if (i === 0) d.className = 'on';
+  dots.appendChild(d);
+});
+
+let cur = 0;
+const book = document.getElementById('book');
+const noEl = document.getElementById('no');
+
+function render() {
+  all.forEach((el, i) => el.classList.toggle('on', i === cur));
+  [...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur));
+  noEl.textContent = cur === 0 ? '封面'
+    : (cur === all.length - 1 ? '尾声' : `${cur} / ${PAGES.length}`);
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === all.length - 1;
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function go(n) {
+  if (n < 0 || n >= all.length || n === cur) return;
+  book.classList.add('turn');
+  setTimeout(() => {
+    cur = n; render(); book.classList.remove('turn');
+  }, 210);
+}
+
+document.getElementById('prev').onclick = () => go(cur - 1);
+document.getElementById('next').onclick = () => go(cur + 1);
+document.getElementById('p0').onclick = () => go(1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(cur + 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+});
+document.addEventListener('click', e => {
+  if (e.target.closest('.bar') || e.target.closest('#p0')) return;
+  const r = book.getBoundingClientRect();
+  if (e.clientX > r.left + r.width * 0.62) go(cur + 1);
+  else if (e.clientX < r.left + r.width * 0.38) go(cur - 1);
+});
+render();
+</script>
+</body>
+</html>

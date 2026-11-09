@@ -1,0 +1,116 @@
+{
+  "title": "把光借给你",
+  "voice_map": {
+    "narrator": {
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "desc": "旁白 · 温柔女声，语速偏慢，给孩子留出看图的时间",
+      "base_rate": "-8%",
+      "base_pitch": "+0Hz"
+    },
+    "xiaoman": {
+      "voice": "zh-CN-XiaoyiNeural",
+      "desc": "小满 · 少女音，清亮，情绪起伏大",
+      "base_rate": "-2%",
+      "base_pitch": "+4Hz"
+    },
+    "adeng": {
+      "voice": "zh-CN-YunxiNeural",
+      "desc": "阿灯 · 年轻男声，跳脱，说话带笑意",
+      "base_rate": "+4%",
+      "base_pitch": "+2Hz"
+    },
+    "momo": {
+      "voice": "zh-CN-YunjianNeural",
+      "desc": "墨墨 · 低沉男声，气声重，显得孤单",
+      "base_rate": "-14%",
+      "base_pitch": "-6Hz"
+    }
+  },
+  "emotion_map": {
+    "平静": {"rate": "+0%", "pitch": "+0Hz", "volume": "+0%"},
+    "紧张": {"rate": "+9%", "pitch": "+3Hz", "volume": "+0%"},
+    "低语": {"rate": "-16%", "pitch": "-3Hz", "volume": "-18%"},
+    "惊奇": {"rate": "+6%", "pitch": "+7Hz", "volume": "+4%"},
+    "兴奋": {"rate": "+13%", "pitch": "+8Hz", "volume": "+6%"},
+    "温暖": {"rate": "-7%", "pitch": "+1Hz", "volume": "+0%"},
+    "温柔": {"rate": "-11%", "pitch": "-1Hz", "volume": "-3%"},
+    "低落": {"rate": "-13%", "pitch": "-5Hz", "volume": "-8%"},
+    "心疼": {"rate": "-11%", "pitch": "-2Hz", "volume": "-4%"},
+    "悲伤": {"rate": "-15%", "pitch": "-7Hz", "volume": "-10%"},
+    "委屈": {"rate": "-9%", "pitch": "-3Hz", "volume": "-6%"},
+    "嘴硬": {"rate": "+11%", "pitch": "+5Hz", "volume": "+5%"},
+    "担心": {"rate": "+5%", "pitch": "+2Hz", "volume": "-2%"},
+    "惊讶": {"rate": "+8%", "pitch": "+9Hz", "volume": "+3%"},
+    "轻快": {"rate": "+10%", "pitch": "+6Hz", "volume": "+2%"},
+    "释然": {"rate": "-6%", "pitch": "+2Hz", "volume": "+0%"}
+  },
+  "pause_map": {
+    "scene_gap": 1.0,
+    "line_gap": 0.32,
+    "emotion_gap": 0.55,
+    "dialogue_gap": 0.22
+  },
+  "lines": [
+    {"scene": 1, "speaker": "narrator", "emotion": "平静", "text": "晚上九点，妈妈关了灯，门轻轻合上。"},
+    {"scene": 1, "speaker": "narrator", "emotion": "紧张", "text": "小满把自己缩成一个小球，只露出两只眼睛。"},
+    {"scene": 1, "speaker": "narrator", "emotion": "紧张", "text": "衣柜的影子像一只蹲着的猫，窗帘被风吹得鼓起来，又瘪下去。"},
+    {"scene": 1, "speaker": "narrator", "emotion": "低语", "text": "她在心里数：一、二、三……"},
+    {"scene": 1, "speaker": "narrator", "emotion": "紧张", "text": "数到七的时候，天花板上传来“咔哒”一声。"},
+    {"scene": 1, "speaker": "xiaoman", "emotion": "低语", "text": "谁在那儿？"},
+    {"scene": 1, "speaker": "narrator", "emotion": "平静", "text": "没有人回答。可她知道，这个家里除了她和妈妈，阁楼上还堆着外公留下的旧东西。"},
+
+    {"scene": 2, "speaker": "narrator", "emotion": "平静", "text": "阁楼的楼梯在走廊尽头，第三级会响。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "紧张", "text": "小满踮着脚踩过去，还是“吱”了一声。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "平静", "text": "灰尘在手电筒的光柱里慢慢地飘。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "平静", "text": "角落里躺着一只旧纸灯笼，竹骨撑得鼓鼓的，米白色的宣纸上打着两处补丁。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "惊奇", "text": "她伸手擦了擦，灯笼忽然“嗝”地响了一下。"},
+    {"scene": 2, "speaker": "adeng", "emotion": "惊奇", "text": "哎哟，痒。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "平静", "text": "一个细小的声音说。小满的手停在半空。灯笼里的火苗抖了抖，睁开了一只眼睛。"},
+
+    {"scene": 3, "speaker": "adeng", "emotion": "兴奋", "text": "抓紧了！"},
+    {"scene": 3, "speaker": "narrator", "emotion": "惊奇", "text": "阿灯说。它没有翅膀，可它飘起来的时候，整间阁楼都亮了。"},
+    {"scene": 3, "speaker": "narrator", "emotion": "惊奇", "text": "窗户自己打开，风把小满的头发吹到脑后。他们从屋顶上飞过去，瓦片在脚下变成一片一片的鳞。"},
+    {"scene": 3, "speaker": "narrator", "emotion": "温柔", "text": "整座城市正在关灯，一盏，两盏，三盏，像有人在数星星，只是数着数着就困了。"},
+    {"scene": 3, "speaker": "adeng", "emotion": "温暖", "text": "你看，黑不是空的，黑是盖着被子的。"},
+
+    {"scene": 4, "speaker": "narrator", "emotion": "紧张", "text": "飞到第三条街的时候，路灯忽然灭了。"},
+    {"scene": 4, "speaker": "narrator", "emotion": "紧张", "text": "不是一盏一盏地灭，是一整排一起灭，像有人一口把它们吸了进去。"},
+    {"scene": 4, "speaker": "narrator", "emotion": "紧张", "text": "小满看见一团灰黑色的东西停在路灯上，拳头那么大，边缘毛茸茸的，正在“咕咚咕咚”地咽。"},
+    {"scene": 4, "speaker": "adeng", "emotion": "担心", "text": "那是墨墨。它一晚上要吃掉一百盏灯。"},
+    {"scene": 4, "speaker": "narrator", "emotion": "紧张", "text": "小满抱紧了阿灯，手指有点抖。"},
+
+    {"scene": 5, "speaker": "xiaoman", "emotion": "担心", "text": "我们回去吧。"},
+    {"scene": 5, "speaker": "narrator", "emotion": "平静", "text": "小满说。她听见自己的声音在发抖，觉得有点丢人，又补了一句。"},
+    {"scene": 5, "speaker": "xiaoman", "emotion": "嘴硬", "text": "我不是怕。"},
+    {"scene": 5, "speaker": "narrator", "emotion": "低落", "text": "阿灯没有笑她。可它的光暗了一圈，像有人把灯芯拧小了一点。"},
+    {"scene": 5, "speaker": "xiaoman", "emotion": "担心", "text": "你怎么了？"},
+    {"scene": 5, "speaker": "adeng", "emotion": "低落", "text": "我没事。就是……你不相信我的时候，我会变小一点。"},
+    {"scene": 5, "speaker": "narrator", "emotion": "低落", "text": "它又打了个嗝，这次声音很轻。"},
+
+    {"scene": 6, "speaker": "narrator", "emotion": "平静", "text": "墨墨停在最后一盏路灯上，没有再吃。"},
+    {"scene": 6, "speaker": "narrator", "emotion": "心疼", "text": "小满看见它的边缘在往下滴水，一滴，一滴，落在灯罩上。那不是雨。"},
+    {"scene": 6, "speaker": "xiaoman", "emotion": "心疼", "text": "你为什么哭？"},
+    {"scene": 6, "speaker": "narrator", "emotion": "平静", "text": "墨墨转过身，两只圆圆的白眼睛睁得很大。"},
+    {"scene": 6, "speaker": "momo", "emotion": "悲伤", "text": "我怕黑。"},
+    {"scene": 6, "speaker": "momo", "emotion": "悲伤", "text": "我住在天上，天上没有灯。"},
+    {"scene": 6, "speaker": "momo", "emotion": "委屈", "text": "我吃掉它们，是想留一盏给自己。"},
+    {"scene": 6, "speaker": "momo", "emotion": "低落", "text": "可是我吞进去的光，过一会儿就凉了。"},
+
+    {"scene": 7, "speaker": "narrator", "emotion": "平静", "text": "小满摸了摸口袋。"},
+    {"scene": 7, "speaker": "narrator", "emotion": "温柔", "text": "那里有一只小夜灯，是妈妈在她三岁那年买的，塑料的外壳，按一下会亮一朵小小的橘色的花。"},
+    {"scene": 7, "speaker": "narrator", "emotion": "平静", "text": "她把它掏出来，按了一下。花亮了。"},
+    {"scene": 7, "speaker": "xiaoman", "emotion": "温暖", "text": "给你。"},
+    {"scene": 7, "speaker": "narrator", "emotion": "平静", "text": "墨墨愣住了。"},
+    {"scene": 7, "speaker": "momo", "emotion": "惊讶", "text": "给我？那你不就没有了？"},
+    {"scene": 7, "speaker": "narrator", "emotion": "平静", "text": "小满想了想，说。"},
+    {"scene": 7, "speaker": "xiaoman", "emotion": "轻快", "text": "我明天再跟妈妈要一个。"},
+
+    {"scene": 8, "speaker": "narrator", "emotion": "温柔", "text": "天快亮的时候，墨墨慢慢变软了。"},
+    {"scene": 8, "speaker": "narrator", "emotion": "温柔", "text": "它不再是灰黑色，边缘泛出一点浅浅的金。它飘到天上，变成一朵很小的云，云里藏着一朵橘色的花。"},
+    {"scene": 8, "speaker": "narrator", "emotion": "释然", "text": "回家的路上，路灯一盏一盏地亮起来，像是有人在天亮之前，先替太阳点了一遍。"},
+    {"scene": 8, "speaker": "narrator", "emotion": "温暖", "text": "阿灯的光变得很足，足得能照见小满的脚尖。"},
+    {"scene": 8, "speaker": "adeng", "emotion": "温柔", "text": "你不怕黑了？"},
+    {"scene": 8, "speaker": "narrator", "emotion": "平静", "text": "它问。小满摇头。"},
+    {"scene": 8, "speaker": "xiaoman", "emotion": "释然", "text": "黑不是空的。黑是盖着被子的。"}
+  ]
+}

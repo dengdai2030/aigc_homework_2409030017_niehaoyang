@@ -1,0 +1,41 @@
+{
+  "title": "第六颗星",
+  "voice_map": {
+    "narrator": {"voice": "zh-CN-XiaoxiaoNeural", "desc": "旁白 · 温柔女声，语速偏慢", "base_rate": "-8%", "base_pitch": "+0Hz"},
+    "amu": {"voice": "zh-CN-YunxiaNeural", "desc": "阿木 · 男童音，声音轻，句子短", "base_rate": "-4%", "base_pitch": "+2Hz"},
+    "star": {"voice": "zh-CN-XiaoyiNeural", "desc": "星星 · 少女音，偏高偏轻，像从很远的地方传来", "base_rate": "-10%", "base_pitch": "+10Hz"}
+  },
+  "emotion_map": {
+    "平静": {"rate": "+0%", "pitch": "+0Hz", "volume": "+0%"},
+    "孤单": {"rate": "-12%", "pitch": "-4Hz", "volume": "-8%"},
+    "想念": {"rate": "-9%", "pitch": "-1Hz", "volume": "-4%"},
+    "惊奇": {"rate": "+7%", "pitch": "+7Hz", "volume": "+3%"},
+    "温柔": {"rate": "-10%", "pitch": "-1Hz", "volume": "-2%"},
+    "温暖": {"rate": "-6%", "pitch": "+2Hz", "volume": "+0%"},
+    "轻快": {"rate": "+9%", "pitch": "+5Hz", "volume": "+2%"},
+    "低语": {"rate": "-15%", "pitch": "-2Hz", "volume": "-18%"}
+  },
+  "pause_map": {"scene_gap": 0.9, "line_gap": 0.3, "emotion_gap": 0.5, "dialogue_gap": 0.2},
+  "lines": [
+    {"scene": 1, "speaker": "narrator", "emotion": "平静", "text": "阿木今年六岁。"},
+    {"scene": 1, "speaker": "narrator", "emotion": "温柔", "text": "出发前，妈妈在他头盔内侧贴了一张全家福，又在床头贴了一张火箭贴纸，说：想家的时候，就看看它。"},
+    {"scene": 1, "speaker": "narrator", "emotion": "孤单", "text": "太空站的夜晚很长，机器一直在嗡嗡地响。"},
+    {"scene": 1, "speaker": "narrator", "emotion": "孤单", "text": "阿木把玩具火箭抱在怀里，数舱壁上亮着的小绿灯：一、二、三……"},
+
+    {"scene": 2, "speaker": "narrator", "emotion": "惊奇", "text": "数到第六颗的时候，他听见有人轻轻敲窗户。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "平静", "text": "不是敲门，是敲窗。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "想念", "text": "阿木转过头，舷窗外只有地球，蓝蓝的，上面缀着一片一片金色的灯。"},
+    {"scene": 2, "speaker": "narrator", "emotion": "想念", "text": "他趴到玻璃上，鼻子压得扁扁的。他想，那些灯里，有一盏是妈妈留的。"},
+
+    {"scene": 3, "speaker": "star", "emotion": "低语", "text": "你在找什么？"},
+    {"scene": 3, "speaker": "narrator", "emotion": "惊奇", "text": "一个细细的声音问。阿木吓了一跳。"},
+    {"scene": 3, "speaker": "narrator", "emotion": "惊奇", "text": "窗外的黑暗里，飘着一颗很小很小的星星，亮得刚好能看清它歪着头。"},
+    {"scene": 3, "speaker": "amu", "emotion": "平静", "text": "我在找我家的灯。"},
+    {"scene": 3, "speaker": "star", "emotion": "温柔", "text": "我很久没听人说过“家”了。你能讲讲吗？"},
+
+    {"scene": 4, "speaker": "narrator", "emotion": "温柔", "text": "阿木就讲了。讲楼下的面馆，讲妈妈端面时烫红的手，讲那只总在窗台上晒太阳的猫。"},
+    {"scene": 4, "speaker": "narrator", "emotion": "惊奇", "text": "讲着讲着，星星越来越亮，亮到阿木不得不眯起眼睛。"},
+    {"scene": 4, "speaker": "star", "emotion": "温暖", "text": "这个给你。想家的时候捏一捏，会有点暖。"},
+    {"scene": 4, "speaker": "narrator", "emotion": "温暖", "text": "天亮前，星星落下一小捧金色的沙。阿木把沙装进玻璃瓶，取名叫：第六颗星。"}
+  ]
+}

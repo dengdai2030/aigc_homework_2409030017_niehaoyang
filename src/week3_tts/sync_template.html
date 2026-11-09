@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__TITLE__ · 同步高亮有声书</title>
+<style>
+  :root{
+    --cream:#FBF7EF; --ink:#332E2B; --muted:#8C7E74; --accent:#C9713C;
+    --narr:#5B534D; --line:#E8DDCB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:#EFE7D9;
+    background-image:radial-gradient(900px 500px at 15% 0%,#FFF9EE 0%,transparent 60%),
+                     radial-gradient(800px 500px at 100% 100%,#F2E7D4 0%,transparent 55%);
+    font-family:"Kaiti SC","STKaiti",KaiTi,"楷体",Georgia,serif;
+    color:var(--ink); min-height:100vh; padding:28px 18px 130px;
+    display:flex; justify-content:center;
+  }
+  .wrap{width:min(1080px,100%);display:grid;grid-template-columns:400px 1fr;gap:26px;align-items:start}
+  .left{position:sticky;top:28px}
+  .frame{
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;
+    padding:12px;box-shadow:0 16px 44px rgba(90,70,50,.15);
+  }
+  .frame img{width:100%;border-radius:8px;display:block;transition:opacity .4s}
+  .cap{font-size:12.5px;color:var(--muted);letter-spacing:.12em;text-align:center;padding-top:9px}
+  .head{margin-bottom:16px}
+  .head h1{font-size:26px;font-weight:400;letter-spacing:.12em}
+  .head .sub{font-size:12.5px;color:var(--muted);letter-spacing:.18em;margin-top:8px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .legend span{font-size:11.5px;letter-spacing:.1em;padding:3px 10px;border-radius:999px;
+    border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.4)}
+  .script{
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;
+    padding:26px 30px;box-shadow:0 16px 44px rgba(90,70,50,.12);
+    max-height:calc(100vh - 190px);overflow:auto;scroll-behavior:smooth;
+  }
+  .line{
+    font-size:16.5px;line-height:2;color:#9A8E85;padding:7px 12px;border-radius:9px;
+    cursor:pointer;transition:color .25s,background .25s,transform .25s;
+    display:flex;gap:10px;align-items:baseline;
+  }
+  .line .who{
+    flex:0 0 auto;font-size:11.5px;letter-spacing:.08em;color:#B6A99E;
+    border:1px solid var(--line);border-radius:6px;padding:1px 7px;transform:translateY(-2px);
+    transition:.25s;
+  }
+  .line.talk .tx{color:#8B7A6B}
+  .line:hover{background:rgba(201,113,60,.06)}
+  .line.on{
+    color:var(--ink);background:rgba(201,113,60,.10);
+    box-shadow:inset 3px 0 0 var(--accent);
+  }
+  .line.on .who{color:#fff;background:var(--accent);border-color:var(--accent)}
+  .line.on .tx{color:var(--ink)}
+  .line .tx{transition:color .2s}
+  .bar{
+    position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
+    width:min(720px,calc(100% - 32px));
+    background:rgba(251,247,239,.95);border:1px solid var(--line);
+    border-radius:16px;padding:12px 18px;backdrop-filter:blur(10px);
+    box-shadow:0 12px 34px rgba(90,70,50,.16);
+    display:flex;align-items:center;gap:14px;
+  }
+  .bar button{
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+    background:#fff;cursor:pointer;font-size:15px;color:var(--ink);
+    display:grid;place-items:center;transition:.2s;flex:0 0 auto;
+  }
+  .bar button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .track{flex:1;height:5px;background:#E6DAC7;border-radius:99px;position:relative;cursor:pointer}
+  .track .fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:99px;width:0}
+  .time{font-size:12px;color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums;flex:0 0 auto}
+  audio{display:none}
+  @media (max-width:900px){
+    .wrap{grid-template-columns:1fr}
+    .left{position:static}
+    .script{max-height:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="left">
+    <div class="frame">
+      <img id="pic" src="images/scene01.jpg" alt="插图">
+      <div class="cap" id="cap">第 1 幕</div>
+    </div>
+    <div class="legend">
+      <span>4 个音色</span><span>16 种情绪参数</span><span>时长 __DURATION__ 秒</span><span>BGM：程序化八音盒</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="head">
+      <h1>__TITLE__</h1>
+      <div class="sub">多角色有声书 · 点击任意一句可跳转</div>
+    </div>
+    <div class="script" id="script">
+__LINES__
+    </div>
+  </div>
+</div>
+
+<div class="bar">
+  <button id="play" aria-label="播放">▶</button>
+  <span class="time" id="cur">0:00</span>
+  <div class="track" id="track"><div class="fill" id="fill"></div></div>
+  <span class="time" id="dur">0:00</span>
+</div>
+<audio id="au" src="__AUDIO__" preload="metadata"></audio>
+
+<script>
+const au = document.getElementById('au');
+const lines = [...document.querySelectorAll('.line')];
+const fill = document.getElementById('fill');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const pic = document.getElementById('pic');
+const cap = document.getElementById('cap');
+const box = document.getElementById('script');
+
+let lastIdx = -1, lastScene = -1;
+
+function fmt(t){
+  if (!isFinite(t)) return '0:00';
+  const m = Math.floor(t / 60), s = Math.floor(t % 60);
+  return m + ':' + String(s).padStart(2, '0');
+}
+
+function tick(){
+  const t = au.currentTime;
+  fill.style.width = (t / (au.duration || 1) * 100) + '%';
+  curEl.textContent = fmt(t);
+
+  let idx = -1;
+  for (let i = 0; i < lines.length; i++){
+    const a = +lines[i].dataset.start, b = +lines[i].dataset.end;
+    if (t >= a - 0.05 && t < b) { idx = i; break; }
+  }
+  if (idx !== lastIdx){
+    lines.forEach((l, i) => l.classList.toggle('on', i === idx));
+    if (idx >= 0){
+      const el = lines[idx];
+      const top = el.offsetTop - box.clientHeight * 0.45;
+      box.scrollTo({top, behavior: 'smooth'});
+      const sc = el.dataset.scene;
+      if (sc !== lastScene){
+        lastScene = sc;
+        pic.style.opacity = 0;
+        setTimeout(() => {
+          pic.src = 'images/scene' + String(sc).padStart(2, '0') + '.jpg';
+          cap.textContent = '第 ' + sc + ' 幕';
+          pic.style.opacity = 1;
+        }, 180);
+      }
+    }
+    lastIdx = idx;
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+au.addEventListener('loadedmetadata', () => durEl.textContent = fmt(au.duration));
+
+document.getElementById('play').onclick = () => {
+  if (au.paused){ au.play(); document.getElementById('play').textContent = '❚❚'; }
+  else { au.pause(); document.getElementById('play').textContent = '▶'; }
+};
+au.addEventListener('ended', () => document.getElementById('play').textContent = '▶');
+
+document.getElementById('track').onclick = e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  au.currentTime = (e.clientX - r.left) / r.width * (au.duration || 0);
+};
+
+lines.forEach(l => l.onclick = () => {
+  au.currentTime = +l.dataset.start + 0.01;
+  if (au.paused){ au.play(); document.getElementById('play').textContent = '❚❚'; }
+});
+</script>
+</body>
+</html>

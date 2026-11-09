@@ -1,0 +1,78 @@
+[
+  {
+    "id": "SFX-01",
+    "key": "wind_chime",
+    "name": "风铃",
+    "desc": "细碎的金属风铃，七声随机响起，安静清亮",
+    "tags": [
+      "风铃",
+      "清脆",
+      "魔法",
+      "提示",
+      "夜晚",
+      "森林"
+    ],
+    "file": "wind_chime.mp3",
+    "duration": 4.0
+  },
+  {
+    "id": "SFX-02",
+    "key": "night_wind",
+    "name": "夜风",
+    "desc": "低沉的夜风声，缓慢起伏，适合夜景与孤独情绪",
+    "tags": [
+      "风",
+      "夜晚",
+      "空旷",
+      "安静",
+      "氛围"
+    ],
+    "file": "night_wind.mp3",
+    "duration": 6.0
+  },
+  {
+    "id": "SFX-03",
+    "key": "heartbeat",
+    "name": "心跳",
+    "desc": "缓慢的心跳声，四下，用于紧张与害怕的段落",
+    "tags": [
+      "心跳",
+      "紧张",
+      "害怕",
+      "悬疑",
+      "身体"
+    ],
+    "file": "heartbeat.mp3",
+    "duration": 3.0
+  },
+  {
+    "id": "SFX-04",
+    "key": "match_strike",
+    "name": "火柴划过",
+    "desc": "火柴擦响的一声爆裂加轻微燃烧声，用于点亮光源的瞬间",
+    "tags": [
+      "火柴",
+      "点亮",
+      "爆裂",
+      "瞬间",
+      "光"
+    ],
+    "file": "match_strike.mp3",
+    "duration": 1.72
+  },
+  {
+    "id": "SFX-05",
+    "key": "raindrop",
+    "name": "雨滴",
+    "desc": "稀疏的雨滴落在水面，高音清脆，用于雨夜与水下场景",
+    "tags": [
+      "雨",
+      "水滴",
+      "清脆",
+      "水下",
+      "安静"
+    ],
+    "file": "raindrop.mp3",
+    "duration": 3.0
+  }
+]

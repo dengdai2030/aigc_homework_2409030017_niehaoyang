@@ -1,0 +1,25 @@
+# ---- 密钥与配置 ----
+.env
+*.key
+
+# ---- 运行时缓存 ----
+.cache/
+logs/
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- 中间产物（体积大、可重新生成）----
+outputs/audio/_segments/
+outputs/audio/*.wav
+outputs/video/_clips/
+outputs/book/_tmp/
+outputs/book/_preview_*.png
+outputs/video/_frame*.jpg
+data/material_library/index/*.pkl
+
+# ---- 系统 ----
+.DS_Store
+Thumbs.db
+desktop.ini

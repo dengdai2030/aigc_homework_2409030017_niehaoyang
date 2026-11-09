@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>故事小屋 · 给每个孩子一个专属故事</title>
+<style>
+  :root{
+    --ink:#332E2B; --muted:#8B7D72; --line:#E8DDCB; --cream:#FBF7EF;
+    --accent:#C9713C; --accent2:#7A9E7E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Kaiti SC","STKaiti",KaiTi,"楷体","PingFang SC",system-ui,sans-serif;
+    color:var(--ink);
+    background:#F3EBDE;
+    background-image:radial-gradient(900px 520px at 12% -6%,#FFFBF1 0%,transparent 62%),
+                     radial-gradient(760px 480px at 102% 104%,#EFE2CC 0%,transparent 58%);
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:34px 18px 60px;
+  }
+  /* ---------------- 首页 ---------------- */
+  .shell{width:min(880px,100%)}
+  .brand{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:6px}
+  .brand .mark{
+    width:34px;height:34px;border-radius:10px;background:linear-gradient(140deg,#E9A05C,#C9713C);
+    box-shadow:0 6px 16px rgba(201,113,60,.32);position:relative;flex:0 0 auto;
+  }
+  .brand .mark::after{
+    content:"";position:absolute;inset:8px 10px;border-radius:50% 50% 46% 46%;
+    background:#FFF6E3;opacity:.92;
+  }
+  h1{font-size:clamp(26px,4.4vw,38px);font-weight:400;letter-spacing:.14em;text-align:center}
+  .lead{
+    text-align:center;color:var(--muted);font-size:15.5px;letter-spacing:.1em;
+    margin:12px 0 34px;line-height:2;
+  }
+  .card{
+    background:var(--cream);border:1px solid var(--line);border-radius:20px;
+    padding:30px 30px 26px;box-shadow:0 20px 54px rgba(92,72,52,.13);
+  }
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+  .field label{display:block;font-size:13.5px;letter-spacing:.18em;color:var(--muted);margin-bottom:9px}
+  .field input{
+    width:100%;padding:12px 14px;border-radius:11px;border:1px solid var(--line);
+    background:#FFFDF8;font-family:inherit;font-size:16px;color:var(--ink);outline:none;
+    transition:.2s;
+  }
+  .field input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(201,113,60,.10)}
+  .themes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 24px}
+  .theme{
+    position:relative;border:1.5px solid var(--line);border-radius:15px;overflow:hidden;
+    cursor:pointer;background:#fff;transition:transform .2s,box-shadow .2s,border-color .2s;
+    text-align:left;
+  }
+  .theme:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(92,72,52,.13)}
+  .theme .art{height:86px;position:relative;overflow:hidden}
+  .theme .nm{padding:9px 11px 11px;font-size:14.5px;letter-spacing:.08em;color:#5A5049}
+  .theme.on{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,113,60,.13)}
+  .theme.on .nm{color:var(--accent)}
+  .theme .tick{
+    position:absolute;top:7px;right:7px;width:17px;height:17px;border-radius:50%;
+    background:var(--accent);color:#fff;font-size:11px;display:none;place-items:center;
+  }
+  .theme.on .tick{display:grid}
+  .go{
+    width:100%;padding:16px;border:none;border-radius:14px;cursor:pointer;
+    background:linear-gradient(135deg,#D98A4E,#C0632F);color:#fff;
+    font-family:inherit;font-size:16.5px;letter-spacing:.24em;
+    box-shadow:0 12px 28px rgba(192,99,47,.30);transition:.22s;
+  }
+  .go:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(192,99,47,.36)}
+  .go:active{transform:translateY(0)}
+  .tip{text-align:center;font-size:12.5px;color:#B3A69B;letter-spacing:.1em;margin-top:14px}
+
+  /* ---------------- 阅读页 ---------------- */
+  .reader{display:none;width:min(1000px,100%)}
+  .reader.on{display:block;animation:in .5s ease both}
+  @keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .back{
+    border:1px solid var(--line);background:rgba(255,255,255,.6);border-radius:999px;
+    padding:8px 16px;font-family:inherit;font-size:13.5px;color:var(--muted);cursor:pointer;
+    letter-spacing:.1em;transition:.2s;
+  }
+  .back:hover{color:var(--accent);border-color:var(--accent)}
+  .tag{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+  .book{
+    display:grid;grid-template-columns:1.05fr .95fr;background:var(--cream);
+    border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    box-shadow:0 24px 60px rgba(92,72,52,.16);min-height:460px;
+  }
+  .scene{position:relative;overflow:hidden;min-height:420px}
+  .scene svg{position:absolute;inset:0;width:100%;height:100%}
+  .prose{padding:40px 38px;display:flex;flex-direction:column}
+  .prose .kicker{font-size:11.5px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px}
+  .prose h2{font-size:21px;font-weight:400;letter-spacing:.06em;margin-bottom:18px;line-height:1.55}
+  .prose p{font-size:16.5px;line-height:2.15;text-indent:2em;color:#4A423C;flex:1}
+  .nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;gap:14px}
+  .nav button{
+    border:1px solid var(--line);background:#FFFDF8;border-radius:11px;
+    padding:10px 20px;font-family:inherit;font-size:14px;color:var(--ink);cursor:pointer;
+    letter-spacing:.1em;transition:.2s;
+  }
+  .nav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+  .nav button:disabled{opacity:.35;cursor:default}
+  .dots{display:flex;gap:7px}
+  .dots i{width:7px;height:7px;border-radius:50%;background:#DCCFBB;transition:.2s}
+  .dots i.on{background:var(--accent);transform:scale(1.4)}
+  .end-actions{display:flex;gap:12px;margin-top:22px}
+  .end-actions button{
+    flex:1;padding:13px;border-radius:12px;border:1px solid var(--line);background:#fff;
+    font-family:inherit;font-size:14.5px;letter-spacing:.14em;cursor:pointer;color:#5A5049;
+    transition:.2s;
+  }
+  .end-actions button:hover{border-color:var(--accent);color:var(--accent)}
+  @media (max-width:780px){
+    .row{grid-template-columns:1fr}
+    .themes{grid-template-columns:repeat(2,1fr)}
+    .book{grid-template-columns:1fr}
+    .scene{min-height:220px}
+    .prose{padding:28px 24px}
+  }
+  @media print{
+    body{background:#fff;padding:0}
+    .topbar,.nav,.end-actions{display:none}
+    .book{box-shadow:none;border:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 首页 ============ -->
+<section class="shell" id="home">
+  <div class="brand"><div class="mark"></div><h1>故事小屋</h1></div>
+  <p class="lead">写下孩子的名字，选一个世界<br>剩下的，交给我们来讲</p>
+
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>主角的名字</label>
+        <input id="fName" maxlength="8" placeholder="例如：小满" value="小满">
+      </div>
+      <div class="field">
+        <label>今年几岁</label>
+        <input id="fAge" type="number" min="3" max="12" value="7">
+      </div>
+    </div>
+    <div class="row" style="grid-template-columns:1fr">
+      <div class="field">
+        <label>他 / 她最喜欢的事</label>
+        <input id="fLike" maxlength="16" placeholder="例如：数星星、画画、吃面" value="数星星">
+      </div>
+    </div>
+
+    <div class="field" style="margin-bottom:10px">
+      <label>选一个世界</label>
+    </div>
+    <div class="themes" id="themes"></div>
+
+    <button class="go" id="go">开 始 讲 故 事</button>
+    <div class="tip">共 4 个世界 · 每次生成都会有一点点不一样</div>
+  </div>
+</section>
+
+<!-- ============ 阅读页 ============ -->
+<section class="reader" id="reader">
+  <div class="topbar">
+    <button class="back" id="back">← 换一个世界</button>
+    <div class="tag" id="tag">森林冒险</div>
+  </div>
+  <div class="book">
+    <div class="scene" id="scene"></div>
+    <div class="prose">
+      <div class="kicker" id="kicker">第 1 页</div>
+      <h2 id="ptitle"></h2>
+      <p id="ptext"></p>
+      <div class="nav">
+        <button id="prev">← 上一页</button>
+        <div class="dots" id="dots"></div>
+        <button id="next">下一页 →</button>
+      </div>
+    </div>
+  </div>
+  <div class="end-actions" id="endActions" style="display:none">
+    <button id="again">再讲一个（换个说法）</button>
+    <button onclick="window.print()">打印这一本</button>
+  </div>
+</section>
+
+<script>
+/* ============================================================
+   主题配置：每个世界 = 一组页面文案 + 一套 SVG 场景
+   ============================================================ */
+const THEMES = {
+  forest: {
+    name: "森林冒险",
+    sky: ["#DCEBC8", "#B9D6A0"],
+    ink: "#2F4A32",
+    pages: [
+      { t: "门后面的森林", s: "{name}今年{age}岁，最喜欢{like}。这天下午，{name}在院子后面发现一扇从来没见过的木门。门上钉着一块小小的牌子，写着四个字：请轻轻推。" },
+      { t: "不会响的铃铛", s: "门后面是森林。树很高，光从叶子的缝里漏下来，像撒了一地碎金子。一只小鹿站在路中间，脖子上挂着一串铃铛，可是铃铛一声都不响。" },
+      { t: "讲一件喜欢的事", s: "「你能帮我吗？」小鹿说，「我的铃铛把声音弄丢了。」{name}想了想，就把{like}的事讲给它听。讲着讲着，铃铛忽然「叮」了一声。" },
+      { t: "整座森林都亮了", s: "原来，铃铛要听见真心喜欢的事才会响。{name}又讲了一件，又讲了一件。铃铛越响越亮，声音顺着树梢传出去，整座森林都跟着亮了起来。" },
+      { t: "口袋里的小铃铛", s: "回家的路上，{name}摸了摸口袋，里面多了一颗小小的铃铛。妈妈问：「今天去哪儿了？」{name}笑着说：「去讲了一个下午的故事。」" }
+    ]
+  },
+  space: {
+    name: "太空旅行",
+    sky: ["#1E2A4E", "#3C4E7A"],
+    ink: "#EAF0FF",
+    pages: [
+      { t: "墙上的火箭", s: "{name}今年{age}岁，最喜欢{like}。晚上，{name}把一张贴纸贴在床头。贴纸上画着一枚火箭，尾巴上有一小簇火。" },
+      { t: "嘶的一声", s: "半夜，火箭「嘶」地响了一下，从墙上飞下来，变成真的那么大。舱门开着，里面有一张小椅子，正好是{name}的尺寸。" },
+      { t: "第{age}颗星", s: "飞船飞出窗户，地球在身后变成一个蓝蓝的球。{name}数着星星，数到第{age}颗的时候，看见那颗星星在朝自己招手。" },
+      { t: "星星也想听", s: "那颗星星说：「我很久没有听见有人讲{like}了。」{name}就一句一句讲给它听。星星听着听着，亮了一点点，又亮了一点点。" },
+      { t: "一瓶发光的沙", s: "天亮前，飞船把{name}送回了床上。枕头边多了一小捧会发光的沙子。{name}把它们装进玻璃瓶，取名叫「第{age}颗星」。" }
+    ]
+  },
+  sea: {
+    name: "海底世界",
+    sky: ["#BEE6EA", "#6FB9C6"],
+    ink: "#124049",
+    pages: [
+      { t: "把头埋进水里", s: "{name}今年{age}岁，最喜欢{like}。夏天，{name}戴上泳镜，深吸一口气，把头埋进水里。" },
+      { t: "贝壳做的门", s: "水里有一扇贝壳做的门。门开了一条缝，一条小丑鱼探出头来：「你来得正好，我们的珊瑚灯全灭了。」" },
+      { t: "灰灰的珊瑚礁", s: "{name}跟着小丑鱼往下游。珊瑚礁灰灰的，一条鱼都不肯说话。{name}想了想，开始讲{like}的事。" },
+      { t: "笑声变成泡泡", s: "讲到一半，最小的那条鱼先笑了。笑声像泡泡一样往上冒，一个接一个，把珊瑚灯一盏一盏点亮了。整片海都变成了暖的。" },
+      { t: "头发里的珊瑚", s: "上岸的时候，{name}的头发里卡着一小片珊瑚。妈妈问：「怎么这么开心？」{name}说：「我在水里讲了个笑话。」" }
+    ]
+  },
+  city: {
+    name: "夜晚城市",
+    sky: ["#243055", "#4A5A86"],
+    ink: "#F3E6CC",
+    pages: [
+      { t: "关灯以后", s: "{name}今年{age}岁，最喜欢{like}。晚上九点，妈妈关了灯，门轻轻合上。{name}把自己缩成一个小球，只露出两只眼睛。" },
+      { t: "阁楼上的旧灯笼", s: "天花板上传来「咔哒」一声。{name}抱着兔子玩偶，踮着脚走上阁楼。角落里躺着一只旧纸灯笼，纸上有两处补丁。" },
+      { t: "我叫阿灯", s: "擦一擦，灯笼「嗝」地响了一下，睁开一只眼睛：「哎哟，痒。」它叫阿灯，没有翅膀，可是会飞，飞起来的时候整间屋子都亮了。" },
+      { t: "飞过屋顶", s: "阿灯带{name}飞过屋顶。城市正在一盏一盏关灯，像有人在数星星。{name}把{like}的事讲给阿灯听，阿灯的光越来越亮。" },
+      { t: "黑是盖着被子的", s: "「黑不是空的。」阿灯说，「黑是盖着被子的。」{name}点点头。从那天起，{name}再也不怕黑了——因为知道黑里也有人在数星星。" }
+    ]
+  }
+};
+
+/* -------------------- SVG 场景 -------------------- */
+let svgSeq = 0;
+function sceneSVG(key, idx){
+  const T = THEMES[key];
+  const [c1, c2] = T.sky;
+  // 同一页面里会有多个 SVG，渐变 id 必须唯一，否则会互相覆盖成空白
+  const gid = `g_${key}_${++svgSeq}`;
+  const stars = Array.from({length: 26}, (_, i) =>
+    `<circle cx="${(i*137)%100}%" cy="${(i*61)%58}%" r="${1 + (i%3)*0.6}"
+      fill="${key==='space'||key==='city'?'#FFF6D8':'#FFFFFF'}" opacity="${0.35 + (i%4)*0.14}"/>`).join("");
+
+  const layers = {
+    forest: `
+      <path d="M0 78 Q 18 58 34 76 T 68 74 T 100 80 V100 H0Z" fill="#6F9463" opacity=".55"/>
+      <path d="M0 86 Q 22 70 44 84 T 78 82 T 100 88 V100 H0Z" fill="#4F7346" opacity=".85"/>
+      ${[12,30,52,74,90].map((x,i)=>`
+        <g opacity="${0.9 - i*0.08}">
+          <rect x="${x}%" y="34%" width="3.2" height="46%" fill="#5C4632" rx="1.4"/>
+          <circle cx="${x+1.6}%" cy="32%" r="${7+i%3}" fill="#3F6B3C"/>
+          <circle cx="${x-3}%" cy="38%" r="${5+i%2}" fill="#4E7C46"/>
+        </g>`).join("")}
+      <circle cx="80%" cy="20%" r="26" fill="#FFF3C4" opacity=".55"/>`,
+    space: `
+      ${stars}
+      <circle cx="72%" cy="30%" r="20" fill="#8FB6E8" opacity=".85"/>
+      <circle cx="72%" cy="30%" r="20" fill="none" stroke="#CFE2FF" stroke-width=".6" opacity=".7"/>
+      <path d="M0 88 Q 30 74 60 88 T 100 86 V100 H0Z" fill="#2B3A63" opacity=".9"/>
+      <g transform="translate(24%,46%) rotate(-14)">
+        <path d="M0 0 q14 -8 28 0 q-14 8 -28 0Z" fill="#F0F4FF" opacity=".95"/>
+        <circle cx="14" cy="0" r="3.2" fill="#FFD79A"/>
+        <path d="M-6 0 q-6 6 -2 12" stroke="#FFD79A" stroke-width="2" fill="none" opacity=".8"/>
+      </g>`,
+    sea: `
+      <path d="M0 22 Q 25 12 50 22 T 100 22 V0 H0Z" fill="#A9DDE4" opacity=".7"/>
+      ${[30,44,58,72].map((y,i)=>`<path d="M0 ${y} Q 25 ${y-4} 50 ${y} T 100 ${y}" stroke="#EAF8FA" stroke-width="${1.2+i*0.2}" fill="none" opacity=".5"/>`).join("")}
+      <path d="M0 86 Q 20 74 40 86 T 80 84 T 100 90 V100 H0Z" fill="#3E8C97" opacity=".8"/>
+      <g opacity=".95">
+        <path d="M28% 62 q6 -10 12 0 q-6 5 -12 0Z" fill="#FFB25E"/>
+        <path d="M34% 62 q8 -6 14 2 q-8 6 -14 -2Z" fill="#FFCF8A"/>
+        <circle cx="31%" cy="60%" r="1.6" fill="#1D3B40"/>
+      </g>
+      ${[16,68,84].map((x,i)=>`<circle cx="${x}%" cy="${58+i*6}%" r="${2+i}" fill="#EAF8FA" opacity=".55"/>`).join("")}`,
+    city: `
+      ${stars}
+      <circle cx="18%" cy="22%" r="16" fill="#FFF0C6" opacity=".9"/>
+      <circle cx="18%" cy="22%" r="24" fill="#FFF0C6" opacity=".16"/>
+      ${[[0,62,16,38],[18,54,14,46],[34,68,18,32],[54,48,15,52],[71,60,13,40],[86,56,14,44]]
+        .map(([x,y,w,h])=>`<rect x="${x}%" y="${y}%" width="${w}%" height="${h}%" fill="#1B2444" opacity=".92" rx="1"/>`).join("")}
+      ${[[4,68],[22,60],[38,74],[57,54],[74,66],[89,62]].map(([x,y],i)=>
+        `<rect x="${x}%" y="${y}%" width="2.4%" height="3%" fill="#FFD79A" opacity="${0.55+ (i%3)*0.15}" rx=".6"/>`).join("")}
+      <g transform="translate(44%,54%)">
+        <rect x="-13" y="-16" width="26" height="32" rx="7" fill="#FFF6DC" opacity=".95"/>
+        <circle cx="0" cy="2" r="5.5" fill="#FFB25E"/>
+        <circle cx="-4" cy="-6" r="1.5" fill="#3A3330"/>
+        <circle cx="4" cy="-6" r="1.5" fill="#3A3330"/>
+      </g>`
+  };
+
+  return `<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/>
+      </linearGradient>
+    </defs>
+    <rect width="100" height="100" fill="url(#${gid})"/>
+    ${layers[key] || ""}
+  </svg>`;
+}
+
+/* -------------------- 状态 -------------------- */
+let curTheme = "forest";
+let pages = [];
+let idx = 0;
+let data = {name: "小满", age: 7, like: "数星星"};
+
+/* -------------------- 首页渲染 -------------------- */
+const themesEl = document.getElementById("themes");
+Object.entries(THEMES).forEach(([k, v]) => {
+  const d = document.createElement("div");
+  d.className = "theme" + (k === curTheme ? " on" : "");
+  d.dataset.k = k;
+  d.innerHTML = `<div class="art">${sceneSVG(k, 0)}</div>
+                 <div class="nm">${v.name}</div><div class="tick">✓</div>`;
+  d.onclick = () => {
+    curTheme = k;
+    [...themesEl.children].forEach(c => c.classList.toggle("on", c.dataset.k === k));
+  };
+  themesEl.appendChild(d);
+});
+
+/* -------------------- 生成故事 -------------------- */
+function build(){
+  data.name = (document.getElementById("fName").value || "小朋友").trim().slice(0, 8);
+  data.age = Math.min(12, Math.max(3, parseInt(document.getElementById("fAge").value) || 6));
+  data.like = (document.getElementById("fLike").value || "讲故事").trim().slice(0, 16);
+
+  const fill = s => s.replaceAll("{name}", data.name)
+                     .replaceAll("{age}", data.age)
+                     .replaceAll("{like}", data.like);
+  pages = THEMES[curTheme].pages.map(p => ({t: fill(p.t), s: fill(p.s)}));
+  idx = 0;
+  document.getElementById("tag").textContent = THEMES[curTheme].name;
+  document.getElementById("home").style.display = "none";
+  document.getElementById("reader").classList.add("on");
+  document.getElementById("scene").style.color = THEMES[curTheme].ink;
+  render();
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+function render(){
+  const p = pages[idx];
+  document.getElementById("kicker").textContent = `第 ${idx + 1} 页 · 共 ${pages.length} 页`;
+  document.getElementById("ptitle").textContent = p.t;
+  document.getElementById("ptext").textContent = p.s;
+  document.getElementById("scene").innerHTML = sceneSVG(curTheme, idx);
+  document.getElementById("prev").disabled = idx === 0;
+  document.getElementById("next").disabled = idx === pages.length - 1;
+
+  const dots = document.getElementById("dots");
+  dots.innerHTML = pages.map((_, i) => `<i class="${i === idx ? "on" : ""}"></i>`).join("");
+  document.getElementById("endActions").style.display = idx === pages.length - 1 ? "flex" : "none";
+}
+
+document.getElementById("go").onclick = build;
+document.getElementById("prev").onclick = () => { if (idx > 0){ idx--; render(); } };
+document.getElementById("next").onclick = () => { if (idx < pages.length - 1){ idx++; render(); } };
+document.getElementById("back").onclick = () => {
+  document.getElementById("reader").classList.remove("on");
+  document.getElementById("home").style.display = "block";
+  window.scrollTo({top: 0, behavior: "smooth"});
+};
+document.getElementById("again").onclick = () => {
+  const tips = ["数星星", "画画", "吃面", "跳舞", "养一只小乌龟", "讲笑话", "捡石头", "听雨"];
+  document.getElementById("fLike").value = tips[Math.floor(Math.random() * tips.length)];
+  build();
+};
+if (location.hash === "#demo"){ build(); }
+
+document.addEventListener("keydown", e => {
+  if (!document.getElementById("reader").classList.contains("on")) return;
+  if (e.key === "ArrowRight") document.getElementById("next").click();
+  if (e.key === "ArrowLeft") document.getElementById("prev").click();
+});
+</script>
+</body>
+</html>

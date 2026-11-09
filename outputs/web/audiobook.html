@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把光借给你 · 同步高亮有声书</title>
+<style>
+  :root{
+    --cream:#FBF7EF; --ink:#332E2B; --muted:#8C7E74; --accent:#C9713C;
+    --narr:#5B534D; --line:#E8DDCB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:#EFE7D9;
+    background-image:radial-gradient(900px 500px at 15% 0%,#FFF9EE 0%,transparent 60%),
+                     radial-gradient(800px 500px at 100% 100%,#F2E7D4 0%,transparent 55%);
+    font-family:"Kaiti SC","STKaiti",KaiTi,"楷体",Georgia,serif;
+    color:var(--ink); min-height:100vh; padding:28px 18px 130px;
+    display:flex; justify-content:center;
+  }
+  .wrap{width:min(1080px,100%);display:grid;grid-template-columns:400px 1fr;gap:26px;align-items:start}
+  .left{position:sticky;top:28px}
+  .frame{
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;
+    padding:12px;box-shadow:0 16px 44px rgba(90,70,50,.15);
+  }
+  .frame img{width:100%;border-radius:8px;display:block;transition:opacity .4s}
+  .cap{font-size:12.5px;color:var(--muted);letter-spacing:.12em;text-align:center;padding-top:9px}
+  .head{margin-bottom:16px}
+  .head h1{font-size:26px;font-weight:400;letter-spacing:.12em}
+  .head .sub{font-size:12.5px;color:var(--muted);letter-spacing:.18em;margin-top:8px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .legend span{font-size:11.5px;letter-spacing:.1em;padding:3px 10px;border-radius:999px;
+    border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.4)}
+  .script{
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;
+    padding:26px 30px;box-shadow:0 16px 44px rgba(90,70,50,.12);
+    max-height:calc(100vh - 190px);overflow:auto;scroll-behavior:smooth;
+  }
+  .line{
+    font-size:16.5px;line-height:2;color:#9A8E85;padding:7px 12px;border-radius:9px;
+    cursor:pointer;transition:color .25s,background .25s,transform .25s;
+    display:flex;gap:10px;align-items:baseline;
+  }
+  .line .who{
+    flex:0 0 auto;font-size:11.5px;letter-spacing:.08em;color:#B6A99E;
+    border:1px solid var(--line);border-radius:6px;padding:1px 7px;transform:translateY(-2px);
+    transition:.25s;
+  }
+  .line.talk .tx{color:#8B7A6B}
+  .line:hover{background:rgba(201,113,60,.06)}
+  .line.on{
+    color:var(--ink);background:rgba(201,113,60,.10);
+    box-shadow:inset 3px 0 0 var(--accent);
+  }
+  .line.on .who{color:#fff;background:var(--accent);border-color:var(--accent)}
+  .line.on .tx{color:var(--ink)}
+  .line .tx{transition:color .2s}
+  .bar{
+    position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
+    width:min(720px,calc(100% - 32px));
+    background:rgba(251,247,239,.95);border:1px solid var(--line);
+    border-radius:16px;padding:12px 18px;backdrop-filter:blur(10px);
+    box-shadow:0 12px 34px rgba(90,70,50,.16);
+    display:flex;align-items:center;gap:14px;
+  }
+  .bar button{
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+    background:#fff;cursor:pointer;font-size:15px;color:var(--ink);
+    display:grid;place-items:center;transition:.2s;flex:0 0 auto;
+  }
+  .bar button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .track{flex:1;height:5px;background:#E6DAC7;border-radius:99px;position:relative;cursor:pointer}
+  .track .fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:99px;width:0}
+  .time{font-size:12px;color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums;flex:0 0 auto}
+  audio{display:none}
+  @media (max-width:900px){
+    .wrap{grid-template-columns:1fr}
+    .left{position:static}
+    .script{max-height:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="left">
+    <div class="frame">
+      <img id="pic" src="images/scene01.jpg" alt="插图">
+      <div class="cap" id="cap">第 1 幕</div>
+    </div>
+    <div class="legend">
+      <span>4 个音色</span><span>16 种情绪参数</span><span>时长 292.0 秒</span><span>BGM：程序化八音盒</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="head">
+      <h1>把光借给你</h1>
+      <div class="sub">多角色有声书 · 点击任意一句可跳转</div>
+    </div>
+    <div class="script" id="script">
+<p class="line narr" data-start="0.15" data-end="4.47" data-sp="narrator" data-scene="1"><span class="who">旁白</span><span class="tx">晚上九点，妈妈关了灯，门轻轻合上。</span></p>
+<p class="line narr" data-start="5.02" data-end="9.46" data-sp="narrator" data-scene="1"><span class="who">旁白</span><span class="tx">小满把自己缩成一个小球，只露出两只眼睛。</span></p>
+<p class="line narr" data-start="9.78" data-end="15.756" data-sp="narrator" data-scene="1"><span class="who">旁白</span><span class="tx">衣柜的影子像一只蹲着的猫，窗帘被风吹得鼓起来，又瘪下去。</span></p>
+<p class="line narr" data-start="16.306" data-end="20.65" data-sp="narrator" data-scene="1"><span class="who">旁白</span><span class="tx">她在心里数：一、二、三……</span></p>
+<p class="line narr" data-start="21.2" data-end="25.304" data-sp="narrator" data-scene="1"><span class="who">旁白</span><span class="tx">数到七的时候，天花板上传来“咔哒”一声。</span></p>
+<p class="line talk" data-start="25.854" data-end="27.87" data-sp="xiaoman" data-scene="1"><span class="who">小满</span><span class="tx">谁在那儿？</span></p>
+<p class="line narr" data-start="28.42" data-end="37.228" data-sp="narrator" data-scene="1"><span class="who">旁白</span><span class="tx">没有人回答。可她知道，这个家里除了她和妈妈，阁楼上还堆着外公留下的旧东西。</span></p>
+<p class="line narr" data-start="38.228" data-end="42.62" data-sp="narrator" data-scene="2"><span class="who">旁白</span><span class="tx">阁楼的楼梯在走廊尽头，第三级会响。</span></p>
+<p class="line narr" data-start="43.17" data-end="46.674" data-sp="narrator" data-scene="2"><span class="who">旁白</span><span class="tx">小满踮着脚踩过去，还是“吱”了一声。</span></p>
+<p class="line narr" data-start="47.224" data-end="51.136" data-sp="narrator" data-scene="2"><span class="who">旁白</span><span class="tx">灰尘在手电筒的光柱里慢慢地飘。</span></p>
+<p class="line narr" data-start="51.456" data-end="59.496" data-sp="narrator" data-scene="2"><span class="who">旁白</span><span class="tx">角落里躺着一只旧纸灯笼，竹骨撑得鼓鼓的，米白色的宣纸上打着两处补丁。</span></p>
+<p class="line narr" data-start="60.046" data-end="63.91" data-sp="narrator" data-scene="2"><span class="who">旁白</span><span class="tx">她伸手擦了擦，灯笼忽然“嗝”地响了一下。</span></p>
+<p class="line talk" data-start="64.13" data-end="66.146" data-sp="adeng" data-scene="2"><span class="who">阿灯</span><span class="tx">哎哟，痒。</span></p>
+<p class="line narr" data-start="66.696" data-end="75.48" data-sp="narrator" data-scene="2"><span class="who">旁白</span><span class="tx">一个细小的声音说。小满的手停在半空。灯笼里的火苗抖了抖，睁开了一只眼睛。</span></p>
+<p class="line talk" data-start="76.48" data-end="77.872" data-sp="adeng" data-scene="3"><span class="who">阿灯</span><span class="tx">抓紧了！</span></p>
+<p class="line narr" data-start="78.422" data-end="84.638" data-sp="narrator" data-scene="3"><span class="who">旁白</span><span class="tx">阿灯说。它没有翅膀，可它飘起来的时候，整间阁楼都亮了。</span></p>
+<p class="line narr" data-start="84.958" data-end="94.678" data-sp="narrator" data-scene="3"><span class="who">旁白</span><span class="tx">窗户自己打开，风把小满的头发吹到脑后。他们从屋顶上飞过去，瓦片在脚下变成一片一片的鳞。</span></p>
+<p class="line narr" data-start="95.228" data-end="105.14" data-sp="narrator" data-scene="3"><span class="who">旁白</span><span class="tx">整座城市正在关灯，一盏，两盏，三盏，像有人在数星星，只是数着数着就困了。</span></p>
+<p class="line talk" data-start="105.69" data-end="109.986" data-sp="adeng" data-scene="3"><span class="who">阿灯</span><span class="tx">你看，黑不是空的，黑是盖着被子的。</span></p>
+<p class="line narr" data-start="110.986" data-end="114.634" data-sp="narrator" data-scene="4"><span class="who">旁白</span><span class="tx">飞到第三条街的时候，路灯忽然灭了。</span></p>
+<p class="line narr" data-start="114.954" data-end="120.762" data-sp="narrator" data-scene="4"><span class="who">旁白</span><span class="tx">不是一盏一盏地灭，是一整排一起灭，像有人一口把它们吸了进去。</span></p>
+<p class="line narr" data-start="121.082" data-end="129.674" data-sp="narrator" data-scene="4"><span class="who">旁白</span><span class="tx">小满看见一团灰黑色的东西停在路灯上，拳头那么大，边缘毛茸茸的，正在“咕咚咕咚”地咽。</span></p>
+<p class="line talk" data-start="130.224" data-end="134.4" data-sp="adeng" data-scene="4"><span class="who">阿灯</span><span class="tx">那是墨墨。它一晚上要吃掉一百盏灯。</span></p>
+<p class="line narr" data-start="134.95" data-end="138.19" data-sp="narrator" data-scene="4"><span class="who">旁白</span><span class="tx">小满抱紧了阿灯，手指有点抖。</span></p>
+<p class="line talk" data-start="139.19" data-end="140.894" data-sp="xiaoman" data-scene="5"><span class="who">小满</span><span class="tx">我们回去吧。</span></p>
+<p class="line narr" data-start="141.444" data-end="148.524" data-sp="narrator" data-scene="5"><span class="who">旁白</span><span class="tx">小满说。她听见自己的声音在发抖，觉得有点丢人，又补了一句。</span></p>
+<p class="line talk" data-start="149.074" data-end="150.658" data-sp="xiaoman" data-scene="5"><span class="who">小满</span><span class="tx">我不是怕。</span></p>
+<p class="line narr" data-start="151.208" data-end="159.272" data-sp="narrator" data-scene="5"><span class="who">旁白</span><span class="tx">阿灯没有笑她。可它的光暗了一圈，像有人把灯芯拧小了一点。</span></p>
+<p class="line talk" data-start="159.822" data-end="161.334" data-sp="xiaoman" data-scene="5"><span class="who">小满</span><span class="tx">你怎么了？</span></p>
+<p class="line talk" data-start="161.884" data-end="168.004" data-sp="adeng" data-scene="5"><span class="who">阿灯</span><span class="tx">我没事。就是……你不相信我的时候，我会变小一点。</span></p>
+<p class="line narr" data-start="168.224" data-end="172.232" data-sp="narrator" data-scene="5"><span class="who">旁白</span><span class="tx">它又打了个嗝，这次声音很轻。</span></p>
+<p class="line narr" data-start="173.232" data-end="177.336" data-sp="narrator" data-scene="6"><span class="who">旁白</span><span class="tx">墨墨停在最后一盏路灯上，没有再吃。</span></p>
+<p class="line narr" data-start="177.886" data-end="187.078" data-sp="narrator" data-scene="6"><span class="who">旁白</span><span class="tx">小满看见它的边缘在往下滴水，一滴，一滴，落在灯罩上。那不是雨。</span></p>
+<p class="line talk" data-start="187.298" data-end="189.41" data-sp="xiaoman" data-scene="6"><span class="who">小满</span><span class="tx">你为什么哭？</span></p>
+<p class="line narr" data-start="189.96" data-end="194.784" data-sp="narrator" data-scene="6"><span class="who">旁白</span><span class="tx">墨墨转过身，两只圆圆的白眼睛睁得很大。</span></p>
+<p class="line talk" data-start="195.334" data-end="197.638" data-sp="momo" data-scene="6"><span class="who">墨墨</span><span class="tx">我怕黑。</span></p>
+<p class="line talk" data-start="197.958" data-end="202.638" data-sp="momo" data-scene="6"><span class="who">墨墨</span><span class="tx">我住在天上，天上没有灯。</span></p>
+<p class="line talk" data-start="203.188" data-end="207.844" data-sp="momo" data-scene="6"><span class="who">墨墨</span><span class="tx">我吃掉它们，是想留一盏给自己。</span></p>
+<p class="line talk" data-start="208.394" data-end="213.818" data-sp="momo" data-scene="6"><span class="who">墨墨</span><span class="tx">可是我吞进去的光，过一会儿就凉了。</span></p>
+<p class="line narr" data-start="214.818" data-end="217.17" data-sp="narrator" data-scene="7"><span class="who">旁白</span><span class="tx">小满摸了摸口袋。</span></p>
+<p class="line narr" data-start="217.72" data-end="228.376" data-sp="narrator" data-scene="7"><span class="who">旁白</span><span class="tx">那里有一只小夜灯，是妈妈在她三岁那年买的，塑料的外壳，按一下会亮一朵小小的橘色的花。</span></p>
+<p class="line narr" data-start="228.926" data-end="233.27" data-sp="narrator" data-scene="7"><span class="who">旁白</span><span class="tx">她把它掏出来，按了一下。花亮了。</span></p>
+<p class="line talk" data-start="233.82" data-end="235.332" data-sp="xiaoman" data-scene="7"><span class="who">小满</span><span class="tx">给你。</span></p>
+<p class="line narr" data-start="235.882" data-end="237.706" data-sp="narrator" data-scene="7"><span class="who">旁白</span><span class="tx">墨墨愣住了。</span></p>
+<p class="line talk" data-start="238.256" data-end="242.024" data-sp="momo" data-scene="7"><span class="who">墨墨</span><span class="tx">给我？那你不就没有了？</span></p>
+<p class="line narr" data-start="242.574" data-end="245.118" data-sp="narrator" data-scene="7"><span class="who">旁白</span><span class="tx">小满想了想，说。</span></p>
+<p class="line talk" data-start="245.668" data-end="248.212" data-sp="xiaoman" data-scene="7"><span class="who">小满</span><span class="tx">我明天再跟妈妈要一个。</span></p>
+<p class="line narr" data-start="249.212" data-end="253.508" data-sp="narrator" data-scene="8"><span class="who">旁白</span><span class="tx">天快亮的时候，墨墨慢慢变软了。</span></p>
+<p class="line narr" data-start="253.828" data-end="265.876" data-sp="narrator" data-scene="8"><span class="who">旁白</span><span class="tx">它不再是灰黑色，边缘泛出一点浅浅的金。它飘到天上，变成一朵很小的云，云里藏着一朵橘色的花。</span></p>
+<p class="line narr" data-start="266.426" data-end="275.234" data-sp="narrator" data-scene="8"><span class="who">旁白</span><span class="tx">回家的路上，路灯一盏一盏地亮起来，像是有人在天亮之前，先替太阳点了一遍。</span></p>
+<p class="line narr" data-start="275.784" data-end="281.016" data-sp="narrator" data-scene="8"><span class="who">旁白</span><span class="tx">阿灯的光变得很足，足得能照见小满的脚尖。</span></p>
+<p class="line talk" data-start="281.566" data-end="283.678" data-sp="adeng" data-scene="8"><span class="who">阿灯</span><span class="tx">你不怕黑了？</span></p>
+<p class="line narr" data-start="284.228" data-end="287.324" data-sp="narrator" data-scene="8"><span class="who">旁白</span><span class="tx">它问。小满摇头。</span></p>
+<p class="line talk" data-start="287.874" data-end="292.002" data-sp="xiaoman" data-scene="8"><span class="who">小满</span><span class="tx">黑不是空的。黑是盖着被子的。</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="bar">
+  <button id="play" aria-label="播放">▶</button>
+  <span class="time" id="cur">0:00</span>
+  <div class="track" id="track"><div class="fill" id="fill"></div></div>
+  <span class="time" id="dur">0:00</span>
+</div>
+<audio id="au" src="把光借给你_有声书.mp3" preload="metadata"></audio>
+
+<script>
+const au = document.getElementById('au');
+const lines = [...document.querySelectorAll('.line')];
+const fill = document.getElementById('fill');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const pic = document.getElementById('pic');
+const cap = document.getElementById('cap');
+const box = document.getElementById('script');
+
+let lastIdx = -1, lastScene = -1;
+
+function fmt(t){
+  if (!isFinite(t)) return '0:00';
+  const m = Math.floor(t / 60), s = Math.floor(t % 60);
+  return m + ':' + String(s).padStart(2, '0');
+}
+
+function tick(){
+  const t = au.currentTime;
+  fill.style.width = (t / (au.duration || 1) * 100) + '%';
+  curEl.textContent = fmt(t);
+
+  let idx = -1;
+  for (let i = 0; i < lines.length; i++){
+    const a = +lines[i].dataset.start, b = +lines[i].dataset.end;
+    if (t >= a - 0.05 && t < b) { idx = i; break; }
+  }
+  if (idx !== lastIdx){
+    lines.forEach((l, i) => l.classList.toggle('on', i === idx));
+    if (idx >= 0){
+      const el = lines[idx];
+      const top = el.offsetTop - box.clientHeight * 0.45;
+      box.scrollTo({top, behavior: 'smooth'});
+      const sc = el.dataset.scene;
+      if (sc !== lastScene){
+        lastScene = sc;
+        pic.style.opacity = 0;
+        setTimeout(() => {
+          pic.src = 'images/scene' + String(sc).padStart(2, '0') + '.jpg';
+          cap.textContent = '第 ' + sc + ' 幕';
+          pic.style.opacity = 1;
+        }, 180);
+      }
+    }
+    lastIdx = idx;
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+au.addEventListener('loadedmetadata', () => durEl.textContent = fmt(au.duration));
+
+document.getElementById('play').onclick = () => {
+  if (au.paused){ au.play(); document.getElementById('play').textContent = '❚❚'; }
+  else { au.pause(); document.getElementById('play').textContent = '▶'; }
+};
+au.addEventListener('ended', () => document.getElementById('play').textContent = '▶');
+
+document.getElementById('track').onclick = e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  au.currentTime = (e.clientX - r.left) / r.width * (au.duration || 0);
+};
+
+lines.forEach(l => l.onclick = () => {
+  au.currentTime = +l.dataset.start + 0.01;
+  if (au.paused){ au.play(); document.getElementById('play').textContent = '❚❚'; }
+});
+</script>
+</body>
+</html>

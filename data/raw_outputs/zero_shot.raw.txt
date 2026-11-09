@@ -1,0 +1,13 @@
+{
+  "title": "阿木的太空之旅",
+  "characters": [
+    {"name": "阿木", "traits": "勇敢、想家", "appearance": "一个小男孩"}
+  ],
+  "scenes": [
+    {"scene_id": 1, "description": "阿木在太空站里", "text": "阿木在太空站里飘来飘去。窗外是黑黑的太空，他有点想妈妈了。", "mood": "孤单", "visual_prompt": "a little boy floating in a space station, cartoon style"},
+    {"scene_id": 2, "description": "阿木看到地球", "text": "阿木趴在窗户上，看见蓝色的地球。地球上有他的家。", "mood": "想念", "visual_prompt": "boy looking at earth from window, cartoon"},
+    {"scene_id": 3, "description": "阿木和妈妈通话", "text": "屏幕亮了，妈妈在里面笑。阿木也笑了。", "mood": "开心", "visual_prompt": "boy talking to mother on screen, cartoon"},
+    {"scene_id": 4, "description": "阿木睡觉", "text": "阿木睡着了，梦里他回到了家。", "mood": "安心", "visual_prompt": "boy sleeping in space, cartoon"}
+  ],
+  "moral": "要勇敢，家一直在那里。"
+}

@@ -1,0 +1,1099 @@
+{
+  "title": "把光借给你",
+  "total_duration": 292.0,
+  "audio_file": "案例1_把光借给你_有声书.mp3",
+  "bgm": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\bgm.wav",
+  "voice_map": {
+    "narrator": {
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "desc": "旁白 · 温柔女声，语速偏慢，给孩子留出看图的时间",
+      "base_rate": "-8%",
+      "base_pitch": "+0Hz"
+    },
+    "xiaoman": {
+      "voice": "zh-CN-XiaoyiNeural",
+      "desc": "小满 · 少女音，清亮，情绪起伏大",
+      "base_rate": "-2%",
+      "base_pitch": "+4Hz"
+    },
+    "adeng": {
+      "voice": "zh-CN-YunxiNeural",
+      "desc": "阿灯 · 年轻男声，跳脱，说话带笑意",
+      "base_rate": "+4%",
+      "base_pitch": "+2Hz"
+    },
+    "momo": {
+      "voice": "zh-CN-YunjianNeural",
+      "desc": "墨墨 · 低沉男声，气声重，显得孤单",
+      "base_rate": "-14%",
+      "base_pitch": "-6Hz"
+    }
+  },
+  "emotion_map": {
+    "平静": {
+      "rate": "+0%",
+      "pitch": "+0Hz",
+      "volume": "+0%"
+    },
+    "紧张": {
+      "rate": "+9%",
+      "pitch": "+3Hz",
+      "volume": "+0%"
+    },
+    "低语": {
+      "rate": "-16%",
+      "pitch": "-3Hz",
+      "volume": "-18%"
+    },
+    "惊奇": {
+      "rate": "+6%",
+      "pitch": "+7Hz",
+      "volume": "+4%"
+    },
+    "兴奋": {
+      "rate": "+13%",
+      "pitch": "+8Hz",
+      "volume": "+6%"
+    },
+    "温暖": {
+      "rate": "-7%",
+      "pitch": "+1Hz",
+      "volume": "+0%"
+    },
+    "温柔": {
+      "rate": "-11%",
+      "pitch": "-1Hz",
+      "volume": "-3%"
+    },
+    "低落": {
+      "rate": "-13%",
+      "pitch": "-5Hz",
+      "volume": "-8%"
+    },
+    "心疼": {
+      "rate": "-11%",
+      "pitch": "-2Hz",
+      "volume": "-4%"
+    },
+    "悲伤": {
+      "rate": "-15%",
+      "pitch": "-7Hz",
+      "volume": "-10%"
+    },
+    "委屈": {
+      "rate": "-9%",
+      "pitch": "-3Hz",
+      "volume": "-6%"
+    },
+    "嘴硬": {
+      "rate": "+11%",
+      "pitch": "+5Hz",
+      "volume": "+5%"
+    },
+    "担心": {
+      "rate": "+5%",
+      "pitch": "+2Hz",
+      "volume": "-2%"
+    },
+    "惊讶": {
+      "rate": "+8%",
+      "pitch": "+9Hz",
+      "volume": "+3%"
+    },
+    "轻快": {
+      "rate": "+10%",
+      "pitch": "+6Hz",
+      "volume": "+2%"
+    },
+    "释然": {
+      "rate": "-6%",
+      "pitch": "+2Hz",
+      "volume": "+0%"
+    }
+  },
+  "segments": [
+    {
+      "idx": 0,
+      "scene": 1,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "晚上九点，妈妈关了灯，门轻轻合上。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.15,
+      "start": 0.15,
+      "duration": 4.32,
+      "end": 4.47
+    },
+    {
+      "idx": 1,
+      "scene": 1,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "小满把自己缩成一个小球，只露出两只眼睛。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 5.02,
+      "duration": 4.44,
+      "end": 9.46
+    },
+    {
+      "idx": 2,
+      "scene": 1,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "衣柜的影子像一只蹲着的猫，窗帘被风吹得鼓起来，又瘪下去。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.32,
+      "start": 9.78,
+      "duration": 5.976,
+      "end": 15.756
+    },
+    {
+      "idx": 3,
+      "scene": 1,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "低语",
+      "text": "她在心里数：一、二、三……",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-24%",
+        "pitch": "-3Hz",
+        "volume": "-18%"
+      },
+      "gap_before": 0.55,
+      "start": 16.306,
+      "duration": 4.344,
+      "end": 20.65
+    },
+    {
+      "idx": 4,
+      "scene": 1,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "数到七的时候，天花板上传来“咔哒”一声。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 21.2,
+      "duration": 4.104,
+      "end": 25.304
+    },
+    {
+      "idx": 5,
+      "scene": 1,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "低语",
+      "text": "谁在那儿？",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "-18%",
+        "pitch": "+1Hz",
+        "volume": "-18%"
+      },
+      "gap_before": 0.55,
+      "start": 25.854,
+      "duration": 2.016,
+      "end": 27.87
+    },
+    {
+      "idx": 6,
+      "scene": 1,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "没有人回答。可她知道，这个家里除了她和妈妈，阁楼上还堆着外公留下的旧东西。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 28.42,
+      "duration": 8.808,
+      "end": 37.228
+    },
+    {
+      "idx": 7,
+      "scene": 2,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "阁楼的楼梯在走廊尽头，第三级会响。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 1.0,
+      "start": 38.228,
+      "duration": 4.392,
+      "end": 42.62
+    },
+    {
+      "idx": 8,
+      "scene": 2,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "小满踮着脚踩过去，还是“吱”了一声。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 43.17,
+      "duration": 3.504,
+      "end": 46.674
+    },
+    {
+      "idx": 9,
+      "scene": 2,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "灰尘在手电筒的光柱里慢慢地飘。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 47.224,
+      "duration": 3.912,
+      "end": 51.136
+    },
+    {
+      "idx": 10,
+      "scene": 2,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "角落里躺着一只旧纸灯笼，竹骨撑得鼓鼓的，米白色的宣纸上打着两处补丁。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.32,
+      "start": 51.456,
+      "duration": 8.04,
+      "end": 59.496
+    },
+    {
+      "idx": 11,
+      "scene": 2,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "惊奇",
+      "text": "她伸手擦了擦，灯笼忽然“嗝”地响了一下。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-2%",
+        "pitch": "+7Hz",
+        "volume": "+4%"
+      },
+      "gap_before": 0.55,
+      "start": 60.046,
+      "duration": 3.864,
+      "end": 63.91
+    },
+    {
+      "idx": 12,
+      "scene": 2,
+      "speaker": "adeng",
+      "speaker_name": "阿灯",
+      "emotion": "惊奇",
+      "text": "哎哟，痒。",
+      "voice": "zh-CN-YunxiNeural",
+      "params": {
+        "rate": "+10%",
+        "pitch": "+9Hz",
+        "volume": "+4%"
+      },
+      "gap_before": 0.22,
+      "start": 64.13,
+      "duration": 2.016,
+      "end": 66.146
+    },
+    {
+      "idx": 13,
+      "scene": 2,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "一个细小的声音说。小满的手停在半空。灯笼里的火苗抖了抖，睁开了一只眼睛。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 66.696,
+      "duration": 8.784,
+      "end": 75.48
+    },
+    {
+      "idx": 14,
+      "scene": 3,
+      "speaker": "adeng",
+      "speaker_name": "阿灯",
+      "emotion": "兴奋",
+      "text": "抓紧了！",
+      "voice": "zh-CN-YunxiNeural",
+      "params": {
+        "rate": "+17%",
+        "pitch": "+10Hz",
+        "volume": "+6%"
+      },
+      "gap_before": 1.0,
+      "start": 76.48,
+      "duration": 1.392,
+      "end": 77.872
+    },
+    {
+      "idx": 15,
+      "scene": 3,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "惊奇",
+      "text": "阿灯说。它没有翅膀，可它飘起来的时候，整间阁楼都亮了。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-2%",
+        "pitch": "+7Hz",
+        "volume": "+4%"
+      },
+      "gap_before": 0.55,
+      "start": 78.422,
+      "duration": 6.216,
+      "end": 84.638
+    },
+    {
+      "idx": 16,
+      "scene": 3,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "惊奇",
+      "text": "窗户自己打开，风把小满的头发吹到脑后。他们从屋顶上飞过去，瓦片在脚下变成一片一片的鳞。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-2%",
+        "pitch": "+7Hz",
+        "volume": "+4%"
+      },
+      "gap_before": 0.32,
+      "start": 84.958,
+      "duration": 9.72,
+      "end": 94.678
+    },
+    {
+      "idx": 17,
+      "scene": 3,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "温柔",
+      "text": "整座城市正在关灯，一盏，两盏，三盏，像有人在数星星，只是数着数着就困了。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-19%",
+        "pitch": "-1Hz",
+        "volume": "-3%"
+      },
+      "gap_before": 0.55,
+      "start": 95.228,
+      "duration": 9.912,
+      "end": 105.14
+    },
+    {
+      "idx": 18,
+      "scene": 3,
+      "speaker": "adeng",
+      "speaker_name": "阿灯",
+      "emotion": "温暖",
+      "text": "你看，黑不是空的，黑是盖着被子的。",
+      "voice": "zh-CN-YunxiNeural",
+      "params": {
+        "rate": "-3%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 105.69,
+      "duration": 4.296,
+      "end": 109.986
+    },
+    {
+      "idx": 19,
+      "scene": 4,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "飞到第三条街的时候，路灯忽然灭了。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 1.0,
+      "start": 110.986,
+      "duration": 3.648,
+      "end": 114.634
+    },
+    {
+      "idx": 20,
+      "scene": 4,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "不是一盏一盏地灭，是一整排一起灭，像有人一口把它们吸了进去。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.32,
+      "start": 114.954,
+      "duration": 5.808,
+      "end": 120.762
+    },
+    {
+      "idx": 21,
+      "scene": 4,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "小满看见一团灰黑色的东西停在路灯上，拳头那么大，边缘毛茸茸的，正在“咕咚咕咚”地咽。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.32,
+      "start": 121.082,
+      "duration": 8.592,
+      "end": 129.674
+    },
+    {
+      "idx": 22,
+      "scene": 4,
+      "speaker": "adeng",
+      "speaker_name": "阿灯",
+      "emotion": "担心",
+      "text": "那是墨墨。它一晚上要吃掉一百盏灯。",
+      "voice": "zh-CN-YunxiNeural",
+      "params": {
+        "rate": "+9%",
+        "pitch": "+4Hz",
+        "volume": "-2%"
+      },
+      "gap_before": 0.55,
+      "start": 130.224,
+      "duration": 4.176,
+      "end": 134.4
+    },
+    {
+      "idx": 23,
+      "scene": 4,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "紧张",
+      "text": "小满抱紧了阿灯，手指有点抖。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "+1%",
+        "pitch": "+3Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 134.95,
+      "duration": 3.24,
+      "end": 138.19
+    },
+    {
+      "idx": 24,
+      "scene": 5,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "担心",
+      "text": "我们回去吧。",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "+3%",
+        "pitch": "+6Hz",
+        "volume": "-2%"
+      },
+      "gap_before": 1.0,
+      "start": 139.19,
+      "duration": 1.704,
+      "end": 140.894
+    },
+    {
+      "idx": 25,
+      "scene": 5,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "小满说。她听见自己的声音在发抖，觉得有点丢人，又补了一句。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 141.444,
+      "duration": 7.08,
+      "end": 148.524
+    },
+    {
+      "idx": 26,
+      "scene": 5,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "嘴硬",
+      "text": "我不是怕。",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "+9%",
+        "pitch": "+9Hz",
+        "volume": "+5%"
+      },
+      "gap_before": 0.55,
+      "start": 149.074,
+      "duration": 1.584,
+      "end": 150.658
+    },
+    {
+      "idx": 27,
+      "scene": 5,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "低落",
+      "text": "阿灯没有笑她。可它的光暗了一圈，像有人把灯芯拧小了一点。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-21%",
+        "pitch": "-5Hz",
+        "volume": "-8%"
+      },
+      "gap_before": 0.55,
+      "start": 151.208,
+      "duration": 8.064,
+      "end": 159.272
+    },
+    {
+      "idx": 28,
+      "scene": 5,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "担心",
+      "text": "你怎么了？",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "+3%",
+        "pitch": "+6Hz",
+        "volume": "-2%"
+      },
+      "gap_before": 0.55,
+      "start": 159.822,
+      "duration": 1.512,
+      "end": 161.334
+    },
+    {
+      "idx": 29,
+      "scene": 5,
+      "speaker": "adeng",
+      "speaker_name": "阿灯",
+      "emotion": "低落",
+      "text": "我没事。就是……你不相信我的时候，我会变小一点。",
+      "voice": "zh-CN-YunxiNeural",
+      "params": {
+        "rate": "-9%",
+        "pitch": "-3Hz",
+        "volume": "-8%"
+      },
+      "gap_before": 0.55,
+      "start": 161.884,
+      "duration": 6.12,
+      "end": 168.004
+    },
+    {
+      "idx": 30,
+      "scene": 5,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "低落",
+      "text": "它又打了个嗝，这次声音很轻。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-21%",
+        "pitch": "-5Hz",
+        "volume": "-8%"
+      },
+      "gap_before": 0.22,
+      "start": 168.224,
+      "duration": 4.008,
+      "end": 172.232
+    },
+    {
+      "idx": 31,
+      "scene": 6,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "墨墨停在最后一盏路灯上，没有再吃。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 1.0,
+      "start": 173.232,
+      "duration": 4.104,
+      "end": 177.336
+    },
+    {
+      "idx": 32,
+      "scene": 6,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "心疼",
+      "text": "小满看见它的边缘在往下滴水，一滴，一滴，落在灯罩上。那不是雨。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-19%",
+        "pitch": "-2Hz",
+        "volume": "-4%"
+      },
+      "gap_before": 0.55,
+      "start": 177.886,
+      "duration": 9.192,
+      "end": 187.078
+    },
+    {
+      "idx": 33,
+      "scene": 6,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "心疼",
+      "text": "你为什么哭？",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "-13%",
+        "pitch": "+2Hz",
+        "volume": "-4%"
+      },
+      "gap_before": 0.22,
+      "start": 187.298,
+      "duration": 2.112,
+      "end": 189.41
+    },
+    {
+      "idx": 34,
+      "scene": 6,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "墨墨转过身，两只圆圆的白眼睛睁得很大。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 189.96,
+      "duration": 4.824,
+      "end": 194.784
+    },
+    {
+      "idx": 35,
+      "scene": 6,
+      "speaker": "momo",
+      "speaker_name": "墨墨",
+      "emotion": "悲伤",
+      "text": "我怕黑。",
+      "voice": "zh-CN-YunjianNeural",
+      "params": {
+        "rate": "-29%",
+        "pitch": "-13Hz",
+        "volume": "-10%"
+      },
+      "gap_before": 0.55,
+      "start": 195.334,
+      "duration": 2.304,
+      "end": 197.638
+    },
+    {
+      "idx": 36,
+      "scene": 6,
+      "speaker": "momo",
+      "speaker_name": "墨墨",
+      "emotion": "悲伤",
+      "text": "我住在天上，天上没有灯。",
+      "voice": "zh-CN-YunjianNeural",
+      "params": {
+        "rate": "-29%",
+        "pitch": "-13Hz",
+        "volume": "-10%"
+      },
+      "gap_before": 0.32,
+      "start": 197.958,
+      "duration": 4.68,
+      "end": 202.638
+    },
+    {
+      "idx": 37,
+      "scene": 6,
+      "speaker": "momo",
+      "speaker_name": "墨墨",
+      "emotion": "委屈",
+      "text": "我吃掉它们，是想留一盏给自己。",
+      "voice": "zh-CN-YunjianNeural",
+      "params": {
+        "rate": "-23%",
+        "pitch": "-9Hz",
+        "volume": "-6%"
+      },
+      "gap_before": 0.55,
+      "start": 203.188,
+      "duration": 4.656,
+      "end": 207.844
+    },
+    {
+      "idx": 38,
+      "scene": 6,
+      "speaker": "momo",
+      "speaker_name": "墨墨",
+      "emotion": "低落",
+      "text": "可是我吞进去的光，过一会儿就凉了。",
+      "voice": "zh-CN-YunjianNeural",
+      "params": {
+        "rate": "-27%",
+        "pitch": "-11Hz",
+        "volume": "-8%"
+      },
+      "gap_before": 0.55,
+      "start": 208.394,
+      "duration": 5.424,
+      "end": 213.818
+    },
+    {
+      "idx": 39,
+      "scene": 7,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "小满摸了摸口袋。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 1.0,
+      "start": 214.818,
+      "duration": 2.352,
+      "end": 217.17
+    },
+    {
+      "idx": 40,
+      "scene": 7,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "温柔",
+      "text": "那里有一只小夜灯，是妈妈在她三岁那年买的，塑料的外壳，按一下会亮一朵小小的橘色的花。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-19%",
+        "pitch": "-1Hz",
+        "volume": "-3%"
+      },
+      "gap_before": 0.55,
+      "start": 217.72,
+      "duration": 10.656,
+      "end": 228.376
+    },
+    {
+      "idx": 41,
+      "scene": 7,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "她把它掏出来，按了一下。花亮了。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 228.926,
+      "duration": 4.344,
+      "end": 233.27
+    },
+    {
+      "idx": 42,
+      "scene": 7,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "温暖",
+      "text": "给你。",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "-9%",
+        "pitch": "+5Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 233.82,
+      "duration": 1.512,
+      "end": 235.332
+    },
+    {
+      "idx": 43,
+      "scene": 7,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "墨墨愣住了。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 235.882,
+      "duration": 1.824,
+      "end": 237.706
+    },
+    {
+      "idx": 44,
+      "scene": 7,
+      "speaker": "momo",
+      "speaker_name": "墨墨",
+      "emotion": "惊讶",
+      "text": "给我？那你不就没有了？",
+      "voice": "zh-CN-YunjianNeural",
+      "params": {
+        "rate": "-6%",
+        "pitch": "+3Hz",
+        "volume": "+3%"
+      },
+      "gap_before": 0.55,
+      "start": 238.256,
+      "duration": 3.768,
+      "end": 242.024
+    },
+    {
+      "idx": 45,
+      "scene": 7,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "小满想了想，说。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 242.574,
+      "duration": 2.544,
+      "end": 245.118
+    },
+    {
+      "idx": 46,
+      "scene": 7,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "轻快",
+      "text": "我明天再跟妈妈要一个。",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "+8%",
+        "pitch": "+10Hz",
+        "volume": "+2%"
+      },
+      "gap_before": 0.55,
+      "start": 245.668,
+      "duration": 2.544,
+      "end": 248.212
+    },
+    {
+      "idx": 47,
+      "scene": 8,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "温柔",
+      "text": "天快亮的时候，墨墨慢慢变软了。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-19%",
+        "pitch": "-1Hz",
+        "volume": "-3%"
+      },
+      "gap_before": 1.0,
+      "start": 249.212,
+      "duration": 4.296,
+      "end": 253.508
+    },
+    {
+      "idx": 48,
+      "scene": 8,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "温柔",
+      "text": "它不再是灰黑色，边缘泛出一点浅浅的金。它飘到天上，变成一朵很小的云，云里藏着一朵橘色的花。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-19%",
+        "pitch": "-1Hz",
+        "volume": "-3%"
+      },
+      "gap_before": 0.32,
+      "start": 253.828,
+      "duration": 12.048,
+      "end": 265.876
+    },
+    {
+      "idx": 49,
+      "scene": 8,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "释然",
+      "text": "回家的路上，路灯一盏一盏地亮起来，像是有人在天亮之前，先替太阳点了一遍。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-14%",
+        "pitch": "+2Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 266.426,
+      "duration": 8.808,
+      "end": 275.234
+    },
+    {
+      "idx": 50,
+      "scene": 8,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "温暖",
+      "text": "阿灯的光变得很足，足得能照见小满的脚尖。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-15%",
+        "pitch": "+1Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 275.784,
+      "duration": 5.232,
+      "end": 281.016
+    },
+    {
+      "idx": 51,
+      "scene": 8,
+      "speaker": "adeng",
+      "speaker_name": "阿灯",
+      "emotion": "温柔",
+      "text": "你不怕黑了？",
+      "voice": "zh-CN-YunxiNeural",
+      "params": {
+        "rate": "-7%",
+        "pitch": "+1Hz",
+        "volume": "-3%"
+      },
+      "gap_before": 0.55,
+      "start": 281.566,
+      "duration": 2.112,
+      "end": 283.678
+    },
+    {
+      "idx": 52,
+      "scene": 8,
+      "speaker": "narrator",
+      "speaker_name": "旁白",
+      "emotion": "平静",
+      "text": "它问。小满摇头。",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 284.228,
+      "duration": 3.096,
+      "end": 287.324
+    },
+    {
+      "idx": 53,
+      "scene": 8,
+      "speaker": "xiaoman",
+      "speaker_name": "小满",
+      "emotion": "释然",
+      "text": "黑不是空的。黑是盖着被子的。",
+      "voice": "zh-CN-XiaoyiNeural",
+      "params": {
+        "rate": "-8%",
+        "pitch": "+6Hz",
+        "volume": "+0%"
+      },
+      "gap_before": 0.55,
+      "start": 287.874,
+      "duration": 4.128,
+      "end": 292.002
+    }
+  ],
+  "stats": {
+    "lines": 54,
+    "scenes": 8,
+    "speakers": 4,
+    "voices": [
+      "zh-CN-XiaoxiaoNeural",
+      "zh-CN-XiaoyiNeural",
+      "zh-CN-YunjianNeural",
+      "zh-CN-YunxiNeural"
+    ]
+  }
+}
