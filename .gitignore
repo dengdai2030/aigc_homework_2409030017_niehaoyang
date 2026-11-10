@@ -23,3 +23,6 @@ data/material_library/index/*.pkl
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ---- 录屏原始素材 ----
+outputs/video/_demo_raw/
