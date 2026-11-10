@@ -237,7 +237,7 @@
     },
     "status": "done",
     "result": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\main_story.json",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\main_story.json",
       "source": "replay",
       "title": "把光借给你",
       "scenes": 8
@@ -248,39 +248,39 @@
   },
   {
     "kind": "act",
-    "msg": "#2 illustrate({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\data\\\\stories\\\\main_story.json\", \"…)",
+    "msg": "#2 illustrate({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\data\\\\stories\\\\main_story.json\", \"…)",
     "ts": 1793201647.938
   },
   {
     "kind": "observe",
-    "msg": "#2 illustrate done 0.02s images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\outputs\\\\images\\\\s…、count=8",
+    "msg": "#2 illustrate done 0.02s images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\outputs\\\\images\\\\s…、count=8",
     "ts": 1793201647.957
   },
   {
     "idx": 2,
     "tool": "illustrate",
     "args": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\main_story.json",
-      "source_dir": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\main_story.json",
+      "source_dir": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images",
       "prefix": ""
     },
     "status": "done",
     "result": {
       "images": [
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene01.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene02.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene03.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene04.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene05.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene06.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene07.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\scene08.png"
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene01.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene02.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene03.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene04.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene05.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene06.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene07.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\scene08.png"
       ],
       "count": 8
     },
     "error": "",
     "elapsed": 0.02,
-    "summary": "images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\outputs\\\\images\\\\s…、count=8"
+    "summary": "images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\outputs\\\\images\\\\s…、count=8"
   },
   {
     "kind": "act",
@@ -289,7 +289,7 @@
   },
   {
     "kind": "observe",
-    "msg": "#3 voice done 94.1s audio=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\案例1_把光借给你_有…、duration=292.0、timeline=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例…",
+    "msg": "#3 voice done 94.1s audio=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\案例1_把光借给你_有…、duration=292.0、timeline=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例…",
     "ts": 1793201742.052
   },
   {
@@ -301,17 +301,17 @@
     },
     "status": "done",
     "result": {
-      "audio": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\案例1_把光借给你_有声书.mp3",
+      "audio": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\案例1_把光借给你_有声书.mp3",
       "duration": 292.0,
-      "timeline": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例1.json"
+      "timeline": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例1.json"
     },
     "error": "",
     "elapsed": 94.1,
-    "summary": "audio=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\案例1_把光借给你_有…、duration=292.0、timeline=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例…"
+    "summary": "audio=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\案例1_把光借给你_有…、duration=292.0、timeline=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例…"
   },
   {
     "kind": "act",
-    "msg": "#4 compose_video({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\data\\\\stories\\\\main_story.json\", \"…)",
+    "msg": "#4 compose_video({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\data\\\\stories\\\\main_story.json\", \"…)",
     "ts": 1793201742.052
   },
   {
@@ -323,8 +323,8 @@
     "idx": 4,
     "tool": "compose_video",
     "args": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\main_story.json",
-      "timeline_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例1.json",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\main_story.json",
+      "timeline_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例1.json",
       "tag": "案例1"
     },
     "status": "done",
@@ -337,28 +337,28 @@
   },
   {
     "kind": "act",
-    "msg": "#5 build_book({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\data\\\\stories\\\\main_story.json\", \"…)",
+    "msg": "#5 build_book({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\data\\\\stories\\\\main_story.json\", \"…)",
     "ts": 1793201742.052
   },
   {
     "kind": "observe",
-    "msg": "#5 build_book done 3.93s book=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\book\\案例1_把光借给你.pdf、pages=10",
+    "msg": "#5 build_book done 3.93s book=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\book\\案例1_把光借给你.pdf、pages=10",
     "ts": 1793201745.983
   },
   {
     "idx": 5,
     "tool": "build_book",
     "args": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\main_story.json",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\main_story.json",
       "tag": "案例1"
     },
     "status": "done",
     "result": {
-      "book": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\book\\案例1_把光借给你.pdf",
+      "book": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\book\\案例1_把光借给你.pdf",
       "pages": 10
     },
     "error": "",
     "elapsed": 3.93,
-    "summary": "book=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\book\\案例1_把光借给你.pdf、pages=10"
+    "summary": "book=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\book\\案例1_把光借给你.pdf、pages=10"
   }
 ]

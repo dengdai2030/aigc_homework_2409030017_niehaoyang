@@ -18,11 +18,11 @@
 - **observe** #0 search_materials done 3.21s query=一个怕黑的小女孩在阁楼点亮旧灯笼，遇见一只靠吞灯光取暖的乌云小怪、hits=[{"id": "TPL-004", "kind": "template", "title": "把光借给你", "w…、recommendation={"input_idea": "一个怕黑的小女孩在阁楼点亮旧灯笼，遇见一只靠吞灯光取暖的乌云小怪", "matched…
 - **act** #1 write_story({"request": {"protagonist": "小满", "age": 7, "scene": "夜晚的城市屋顶", "theme": "怕黑与分享", "length…)
 - **observe** #1 write_story done 0.02s source=replay、title=把光借给你、scenes=8
-- **act** #2 illustrate({"story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\main_story.json", "…)
-- **observe** #2 illustrate done 0.02s images=["C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\s…、count=8
+- **act** #2 illustrate({"story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\main_story.json", "…)
+- **observe** #2 illustrate done 0.02s images=["C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\s…、count=8
 - **act** #3 voice({"script_file": "script.json", "tag": "案例1"})
-- **observe** #3 voice done 94.1s audio=C:\Users\85712\Desktop\AIGC作业_刘星宝\outputs\audio\案例1_把光借给你_有…、duration=292.0、timeline=C:\Users\85712\Desktop\AIGC作业_刘星宝\outputs\audio\timeline_案例…
-- **act** #4 compose_video({"story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\main_story.json", "…)
+- **observe** #3 voice done 94.1s audio=C:\Users\85712\Desktop\第01-08周_基础作业\outputs\audio\案例1_把光借给你_有…、duration=292.0、timeline=C:\Users\85712\Desktop\第01-08周_基础作业\outputs\audio\timeline_案例…
+- **act** #4 compose_video({"story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\main_story.json", "…)
 - **observe** #4 compose_video done 0.0s video=（本次跳过）
-- **act** #5 build_book({"story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\main_story.json", "…)
-- **observe** #5 build_book done 3.93s book=C:\Users\85712\Desktop\AIGC作业_刘星宝\outputs\book\案例1_把光借给你.pdf、pages=10
+- **act** #5 build_book({"story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\main_story.json", "…)
+- **observe** #5 build_book done 3.93s book=C:\Users\85712\Desktop\第01-08周_基础作业\outputs\book\案例1_把光借给你.pdf、pages=10

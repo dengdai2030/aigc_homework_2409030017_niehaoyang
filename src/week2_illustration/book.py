@@ -106,7 +106,7 @@ def build_pdf(story, image_dir: Path, out_pdf: Path,
         str(out_pdf), pagesize=A4,
         leftMargin=14 * mm, rightMargin=14 * mm,
         topMargin=13 * mm, bottomMargin=13 * mm,
-        title=story.title, author="刘星宝",
+        title=story.title, author="聂浩洋",
     )
     W, H = A4
     usable_w = W - 28 * mm
@@ -134,7 +134,7 @@ def build_pdf(story, image_dir: Path, out_pdf: Path,
 
     # ---- 封面（标题已烘焙进图）----
     if cover and cover.exists():
-        cover_img = compose_cover(cover, story.title, "文 / 图　刘星宝",
+        cover_img = compose_cover(cover, story.title, "文 / 图　聂浩洋",
                                   BOOK_DIR / "_tmp" / "cover_titled.jpg")
         cov_h = min(usable_w * 1.5, H - 26 * mm - 18)
         flow.append(RLImage(str(cover_img), width=cov_h * 2 / 3, height=cov_h))
@@ -209,7 +209,7 @@ def build_web(story, image_dir: Path, out_dir: Path,
     cover_name = _web_image(image_dir / "scene01.png", img_out)
     if cover and cover.exists():
         titled = img_out / "cover_titled.jpg"
-        compose_cover(cover, story.title, "文 / 图　刘星宝", titled)
+        compose_cover(cover, story.title, "文 / 图　聂浩洋", titled)
         cover_name = "images/cover_titled.jpg"
 
     pages = [{

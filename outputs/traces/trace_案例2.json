@@ -236,7 +236,7 @@
     },
     "status": "done",
     "result": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\space_story.json",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\space_story.json",
       "source": "replay",
       "title": "第六颗星",
       "scenes": 4
@@ -247,36 +247,36 @@
   },
   {
     "kind": "act",
-    "msg": "#2 illustrate({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\data\\\\stories\\\\space_story.json\", …)",
+    "msg": "#2 illustrate({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\data\\\\stories\\\\space_story.json\", …)",
     "ts": 1793203021.495
   },
   {
     "kind": "observe",
-    "msg": "#2 illustrate done 0.06s images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\outputs\\\\images\\\\案…、count=4",
+    "msg": "#2 illustrate done 0.06s images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\outputs\\\\images\\\\案…、count=4",
     "ts": 1793203021.553
   },
   {
     "idx": 2,
     "tool": "illustrate",
     "args": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\space_story.json",
-      "source_dir": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\material_library\\images",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\space_story.json",
+      "source_dir": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\material_library\\images",
       "src_prefix": "space",
       "out_prefix": "案例2"
     },
     "status": "done",
     "result": {
       "images": [
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\案例2_scene01.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\案例2_scene02.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\案例2_scene03.png",
-        "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\images\\案例2_scene04.png"
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\案例2_scene01.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\案例2_scene02.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\案例2_scene03.png",
+        "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\images\\案例2_scene04.png"
       ],
       "count": 4
     },
     "error": "",
     "elapsed": 0.06,
-    "summary": "images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\outputs\\\\images\\\\案…、count=4"
+    "summary": "images=[\"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\outputs\\\\images\\\\案…、count=4"
   },
   {
     "kind": "act",
@@ -285,7 +285,7 @@
   },
   {
     "kind": "observe",
-    "msg": "#3 voice done 42.83s audio=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\案例2_第六颗星_有声…、duration=112.15、timeline=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例…",
+    "msg": "#3 voice done 42.83s audio=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\案例2_第六颗星_有声…、duration=112.15、timeline=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例…",
     "ts": 1793203064.385
   },
   {
@@ -297,66 +297,66 @@
     },
     "status": "done",
     "result": {
-      "audio": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\案例2_第六颗星_有声书.mp3",
+      "audio": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\案例2_第六颗星_有声书.mp3",
       "duration": 112.15,
-      "timeline": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例2.json"
+      "timeline": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例2.json"
     },
     "error": "",
     "elapsed": 42.83,
-    "summary": "audio=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\案例2_第六颗星_有声…、duration=112.15、timeline=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例…"
+    "summary": "audio=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\案例2_第六颗星_有声…、duration=112.15、timeline=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例…"
   },
   {
     "kind": "act",
-    "msg": "#4 compose_video({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\data\\\\stories\\\\space_story.json\", …)",
+    "msg": "#4 compose_video({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\data\\\\stories\\\\space_story.json\", …)",
     "ts": 1793203064.385
   },
   {
     "kind": "observe",
-    "msg": "#4 compose_video done 154.41s video=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\video\\案例2_故事短片.mp4、duration=112.15",
+    "msg": "#4 compose_video done 154.41s video=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\video\\案例2_故事短片.mp4、duration=112.15",
     "ts": 1793203218.798
   },
   {
     "idx": 4,
     "tool": "compose_video",
     "args": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\space_story.json",
-      "timeline_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\audio\\timeline_案例2.json",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\space_story.json",
+      "timeline_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\audio\\timeline_案例2.json",
       "tag": "案例2",
       "img_prefix": "案例2"
     },
     "status": "done",
     "result": {
-      "video": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\video\\案例2_故事短片.mp4",
+      "video": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\video\\案例2_故事短片.mp4",
       "duration": 112.15
     },
     "error": "",
     "elapsed": 154.41,
-    "summary": "video=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\video\\案例2_故事短片.mp4、duration=112.15"
+    "summary": "video=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\video\\案例2_故事短片.mp4、duration=112.15"
   },
   {
     "kind": "act",
-    "msg": "#5 build_book({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\AIGC作业_刘星宝\\\\data\\\\stories\\\\space_story.json\", …)",
+    "msg": "#5 build_book({\"story_file\": \"C:\\\\Users\\\\85712\\\\Desktop\\\\第01-08周_基础作业\\\\data\\\\stories\\\\space_story.json\", …)",
     "ts": 1793203218.798
   },
   {
     "kind": "observe",
-    "msg": "#5 build_book done 1.81s book=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\book\\案例2_第六颗星.pdf、pages=6",
+    "msg": "#5 build_book done 1.81s book=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\book\\案例2_第六颗星.pdf、pages=6",
     "ts": 1793203220.603
   },
   {
     "idx": 5,
     "tool": "build_book",
     "args": {
-      "story_file": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\data\\stories\\space_story.json",
+      "story_file": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\data\\stories\\space_story.json",
       "tag": "案例2"
     },
     "status": "done",
     "result": {
-      "book": "C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\book\\案例2_第六颗星.pdf",
+      "book": "C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\book\\案例2_第六颗星.pdf",
       "pages": 6
     },
     "error": "",
     "elapsed": 1.81,
-    "summary": "book=C:\\Users\\85712\\Desktop\\AIGC作业_刘星宝\\outputs\\book\\案例2_第六颗星.pdf、pages=6"
+    "summary": "book=C:\\Users\\85712\\Desktop\\第01-08周_基础作业\\outputs\\book\\案例2_第六颗星.pdf、pages=6"
   }
 ]

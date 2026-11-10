@@ -96,7 +96,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     # 片头标题
     ev.append(f"Dialogue: 1,{_ts(0.4)},{_ts(4.6)},Title,,0,0,0,,{{\\fad(600,500)}}{title}")
     ev.append(f"Dialogue: 1,{_ts(1.1)},{_ts(4.6)},Sub,,0,0,0,,"
-              f"{{\\fad(600,500)\\fs30\\c&H00E8D6B8&}}刘星宝 · AIGC 应用开发实践 · 第 8 周")
+              f"{{\\fad(600,500)\\fs30\\c&H00E8D6B8&}}聂浩洋 · AIGC 应用开发实践 · 第 8 周")
 
     for s in segs:
         color = SPEAKER_COLOR.get(s["speaker"], "&H00FFFFFF")
